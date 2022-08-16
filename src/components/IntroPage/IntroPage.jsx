@@ -1,21 +1,49 @@
-import {useNavigate} from "react-router-dom";
-import {useState} from "react";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Box, Button, Typography } from "@mui/material";
+import Input from "@mui/material/Input";
+import {
+  introPageContainerStyle,
+  introTitleStyle,
+  inputStyle,
+  introBtnStyle,
+  inputAndBtnContainerStyle,
+} from "./IntroPageStyle";
+import classes from "./IntroPage.module.css";
 
 export const IntroPage = () => {
-    const [username, setUsername] = useState('')
-    let navigate = useNavigate()
+  const [username, setUsername] = useState("");
+  let navigate = useNavigate();
 
-    const handleFindButtonClicked = () => {
-        navigate(`/${username}`, { replace: false })
-    }
+  const handleFindButtonClicked = () => {
+    navigate(`/${username}`, { replace: false });
+  };
 
-    return <div className={"intro-page-container"}>
-        <div> Find user repositories</div>
-        <div>
-            <input onChange={(e) => setUsername(e.target.value)} placeholder={"Username"}/>
-                <button onClick={() => handleFindButtonClicked()}> Find </button>
-        </div>
-    </div>
-}
+  return (
+    <Box>
+      <Box sx={introPageContainerStyle}>
+        <Typography variant="h1" component="h1" sx={introTitleStyle}>
+          Find user repositories
+        </Typography>
+        <Box
+          className={`${classes["input_and-btn-container"]}`}
+          sx={inputAndBtnContainerStyle}
+        >
+          <Input
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder={"Username"}
+            sx={inputStyle}
+            type="text"
+            color="secondary"
+            className={`${classes["find_input"]}`}
+          />
+          <Button sx={introBtnStyle} onClick={() => handleFindButtonClicked()}>
+            Find
+          </Button>
+        </Box>
+      </Box>
+    </Box>
+  );
+};
 
-export default IntroPage
+export default IntroPage;
