@@ -1,4 +1,11 @@
-import { createStore } from 'redux'
-import rootReducer from '../reducers'
+import {combineReducers, configureStore} from "@reduxjs/toolkit";
+import userReducer from './userSlice'
+import inputReducer from './inputSlice'
 
-const store = createStore(rootReducer)
+export const store = configureStore({
+    reducer:
+        combineReducers({
+            user: userReducer,
+            input: inputReducer
+        })
+})

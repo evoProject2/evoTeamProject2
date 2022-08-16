@@ -10,10 +10,10 @@ export const userSlice = createSlice({
     initialState,
     reduders: {
         setRepositories: (state, repos) => {
-            state.repositories = repos
+            state.repositories = repos.payload
         },
         setUsername: (state, newName) => {
-            state.username = newName
+            state.username = newName.payload
         }
     }
 })

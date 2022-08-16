@@ -1,6 +1,8 @@
 import {useNavigate} from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import {useState} from "react";
+import {setUsername} from '../../userSlice'
+
 
 export const IntroPage = () => {
     let navigate = useNavigate()
@@ -10,8 +12,8 @@ export const IntroPage = () => {
     const dispatch = useDispatch()
 
     const handleFindButtonClicked = () => {
-        // dispatch(setUsername("bociasan"))
-
+        dispatch(setUsername("bociasan"))
+        // console.log(input.value)
         navigate(`/${input.value}`)
         // navigate(`/${inputValue}`, { replace: true })    // if u want to restrict back hystory
     }
