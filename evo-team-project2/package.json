@@ -1,8 +1,18 @@
 {
+<<<<<<< HEAD
   "name": "evo-team-project2",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+=======
+  "name": "appp",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "@mui/material": "^5.10.0",
+>>>>>>> bfda3cc9c8ccc989f0010edfd8b8cb36774a50f9
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
@@ -34,5 +44,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+<<<<<<< HEAD
+=======
+  },
+  "devDependencies": {
+    "react-router-dom": "^6.3.0"
+>>>>>>> bfda3cc9c8ccc989f0010edfd8b8cb36774a50f9
   }
 }
