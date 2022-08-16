@@ -13,6 +13,7 @@ function App() {
     alignItems: "center",
     backgroundColor: "#0d1117",
     color: "#FFFFFF",
+    overflow: "auto",
   };
 
   return (
