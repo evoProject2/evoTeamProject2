@@ -1,3 +1,5 @@
+import {useDispatch} from "react-redux";
+
 export const fetchData = async (url) => {
     const res = await fetch(url);
     const json = await res.json();
@@ -42,7 +44,6 @@ export const getRepositoriesByUsername = async (username) => {
     return await Promise.all(rawData.map(async el => {
         const languages = await fetchData(el.languages_url)
         return {
-            // id: el.id,
             name: el.name,
             languages: languages
         }

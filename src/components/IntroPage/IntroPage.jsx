@@ -1,7 +1,7 @@
 import {useNavigate} from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
-import {setUsername} from '../../userSlice'
-import {getRepositoriesByUsername, isAnUsername} from "../../utils/functions";
+import {setRawDataFetched, setUsername} from '../../userSlice'
+import {fetchUserData, getRepositoriesByUsername, isAnUsername} from "../../utils/functions";
 import {setRepositories} from "../../userSlice";
 import { Box, Button, Typography } from "@mui/material";
 import Input from "@mui/material/Input";
@@ -25,6 +25,8 @@ export const IntroPage = () => {
         console.log(user.username)
         if (user.username.trim()!='' && await isAnUsername(user.username)){
             dispatch(setRepositories(await getRepositoriesByUsername(user.username)))
+            dispatch(setRawDataFetched(await fetchUserData(user.username)))
+
             navigate(`/${user.username}`)
             // navigate(`/${inputValue}`, { replace: true })    // if u want to restrict back history
         } else {
