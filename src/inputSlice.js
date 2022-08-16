@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    value: 'bociasan'
+    value: ''
 }
 
 export const inputSlice = createSlice({
     name: 'input',
     initialState,
-    reduders: {
+    reducers: {
         setInputValue:  (state, newValue) => {
             state.value = newValue
         }

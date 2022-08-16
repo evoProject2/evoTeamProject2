@@ -13,15 +13,6 @@ function App() {
     const user = useSelector(state => state.user)
     const dispatch = useDispatch()
 
-    // useEffect(()=> {
-    //     // console.log(user.username)
-    //     //
-    //     // dispatch(setInputValue('123'))
-    //     // dispatch(setUsername('bociasan'))
-    //
-    //     // console.log(Object.keys(dispatch))
-    // }, [])
-
     return (
         <div className="App">
         <BrowserRouter>

@@ -1,14 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    username: 'bociasan',
+    username: '',
     repositories: []
 }
 
 export const userSlice = createSlice({
     name: 'user',
     initialState,
-    reduders: {
+    reducers: {
         setRepositories: (state, repos) => {
             state.repositories = repos.payload
         },
