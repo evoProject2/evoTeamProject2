@@ -1,5 +1,15 @@
-import {useNavigate} from "react-router-dom";
-import {useState} from "react";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Box, Button, Typography } from "@mui/material";
+import Input from "@mui/material/Input";
+import {
+  introPageContainerStyle,
+  introTitleStyle,
+  inputStyle,
+  introBtnStyle,
+  inputAndBtnContainerStyle,
+} from "./IntroPageStyle";
+import classes from "./IntroPage.module.css";
 
 export const IntroPage = ({setUsername}) => {
     const [inputValue, setInputValue] = useState('')
@@ -11,15 +21,32 @@ export const IntroPage = ({setUsername}) => {
         // navigate(`/${inputValue}`, { replace: true })    // if u want to restrict back hystory
     }
 
-    return <div className={"intro-page-container"}>
-        <div> Find user repositories </div>
-        <div>
-            <input onKeyDown={(event) => {if (event.key === 'Enter') handleFindButtonClicked()}} onChange={(e) => setInputValue(e.target.value)} placeholder={"Username"}/>
-            <button onClick={() => handleFindButtonClicked()}> Find </button>
-        </div>
+  return (
+    <Box>
+      <Box sx={introPageContainerStyle}>
+        <Typography variant="h1" component="h1" sx={introTitleStyle}>
+          Find user repositories
+        </Typography>
+        <Box
+          className={`${classes["input_and-btn-container"]}`}
+          sx={inputAndBtnContainerStyle}
+        >
+          <Input
+            onChange={(e) => setUsername(e.target.value)}
+            onKeyDown={(event) => {if (event.key === 'Enter') handleFindButtonClicked()}}
+            placeholder={"Username"}
+            sx={inputStyle}
+            type="text"
+            color="secondary"
+            className={`${classes["find_input"]}`}
+          />
+          <Button sx={introBtnStyle} onClick={() => handleFindButtonClicked()}>
+            Find
+          </Button>
+        </Box>
+      </Box>
+    </Box>
+  );
+};
 
-
-    </div>
-}
-
-export default IntroPage
+export default IntroPage;
