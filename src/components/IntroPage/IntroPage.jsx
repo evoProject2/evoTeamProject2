@@ -1,20 +1,26 @@
 import {useNavigate} from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux'
 import {useState} from "react";
 
-export const IntroPage = ({setUsername}) => {
-    const [inputValue, setInputValue] = useState('')
+export const IntroPage = () => {
     let navigate = useNavigate()
 
+    const user = useSelector(state => state.user)
+    const input = useSelector(state => state.input)
+    const dispatch = useDispatch()
+
     const handleFindButtonClicked = () => {
-        setUsername(inputValue)
-        navigate(`/${inputValue}`)
+        // dispatch(setUsername("bociasan"))
+
+        navigate(`/${input.value}`)
         // navigate(`/${inputValue}`, { replace: true })    // if u want to restrict back hystory
     }
 
     return <div className={"intro-page-container"}>
         <div> Find user repositories </div>
         <div>
-            <input onKeyDown={(event) => {if (event.key === 'Enter') handleFindButtonClicked()}} onChange={(e) => setInputValue(e.target.value)} placeholder={"Username"}/>
+            <input onKeyDown={(event) => {if (event.key === 'Enter') handleFindButtonClicked()}}
+                   onChange={(e) => null /*dispatch(setInputValue(e.target.value))*/} placeholder={"Username"}/>
             <button onClick={() => handleFindButtonClicked()}> Find </button>
         </div>
 
