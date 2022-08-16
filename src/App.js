@@ -6,12 +6,14 @@ import UserRepositoriesPage from "./components/UserRepositoriesPage/UserReposito
 
 
 function App() {
+    const username = 'bociasan'
+
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
             <Route path="/" element={<IntroPage />} />
-            <Route path="/:username" element={<UserRepositoriesPage />}  />
+            <Route path="/:username" element={<UserRepositoriesPage username={username}/>}  />
         </Routes>
       </BrowserRouter>
     </div>
