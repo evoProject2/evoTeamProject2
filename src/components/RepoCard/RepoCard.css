@@ -1,0 +1,11 @@
+.repo-card-container{
+    width: 200px;
+    height: 50px;
+    margin: 20px;
+    background-color: grey;
+    border-radius: 20px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
