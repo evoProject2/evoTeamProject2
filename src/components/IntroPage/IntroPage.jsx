@@ -1,12 +1,8 @@
 import {useNavigate} from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
-
 import {setUsername} from '../../userSlice'
 import {getRepositoriesByUsername, isAnUsername} from "../../utils/functions";
 import {setRepositories} from "../../userSlice";
-
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
 import Input from "@mui/material/Input";
 import {
@@ -26,10 +22,11 @@ export const IntroPage = () => {
     const dispatch = useDispatch()
 
     const handleFindButtonClicked = async () => {
+        console.log(user.username)
         if (user.username.trim()!='' && await isAnUsername(user.username)){
             dispatch(setRepositories(await getRepositoriesByUsername(user.username)))
             navigate(`/${user.username}`)
-            // navigate(`/${inputValue}`, { replace: true })    // if u want to restrict back hystory
+            // navigate(`/${inputValue}`, { replace: true })    // if u want to restrict back history
         } else {
             alert(`'${user.username}' is not a valid username.`)
         }
@@ -47,8 +44,8 @@ export const IntroPage = () => {
           className={`${classes["input_and-btn-container"]}`}
           sx={inputAndBtnContainerStyle}
         >
-          <Input
-            onChange={(e) => setUsername(e.target.value)}
+          <Input onChange={(e) => dispatch(setUsername(e.target.value))}
+            onKeyDown={(event) => {if (event.key === 'Enter') handleFindButtonClicked()}}
             placeholder={"Username"}
             sx={inputStyle}
             type="text"
