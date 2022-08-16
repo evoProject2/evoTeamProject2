@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
-import RepoCard from "./RepoCard";
-export const UserRepositoriesPage = () => {
+import RepoCard from "../components/RepoCard";
+
+export const UserRepositories = () => {
   const user = useSelector((state) => state.user);
 
   return (
@@ -12,4 +13,4 @@ export const UserRepositoriesPage = () => {
     </div>
   );
 };
-export default UserRepositoriesPage;
+export default UserRepositories;
