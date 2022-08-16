@@ -38,8 +38,8 @@ export const createUserDataObject = async (username) => {
 
 export const getRepositoriesByUsername = async (username) => {
     const rawData = await fetchUserData(username)
+    //console.log(rawData)
     return await Promise.all(rawData.map(async el => {
-        console.log(rawData)
         const languages = await fetchData(el.languages_url)
         return {
             // id: el.id,
