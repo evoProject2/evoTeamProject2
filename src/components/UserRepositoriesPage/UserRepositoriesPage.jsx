@@ -17,7 +17,7 @@ export const UserRepositoriesPage = ({username}) => {
 
     return <div>
         {
-            userData.repositories && userData.repositories.map(repo => <RepoCard id={repo.name} repositoryName={repo.name}/>
+            userData.repositories && userData.repositories.map(repo => <RepoCard key={repo.name} repositoryName={repo.name}/>
             )
         }
     </div>

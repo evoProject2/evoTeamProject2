@@ -13,14 +13,9 @@ export const fetchUserData = async (username) => {
 export const createUserDataObject = async (username) => {
     const requstResult = await fetchUserData(username)
     const repositories = await getRepositories(requstResult)
-    // console.log(requstResult)
-    console.log(repositories)
-
-
     return {
         username: username,
         repositories: repositories
-        // repositories: await getRepositories(requstResult)
     }
 }
 
