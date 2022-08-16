@@ -1,0 +1,9 @@
+.input_and-btn-container:hover > .find_input,
+.input_and-btn-container:focus
+  > .find_input
+  .input_and-btn-container:active
+  > .find_input {
+  visibility: visible;
+  width: 200px;
+  transition: width 300ms ease-in-out, display 300ms ease-in-out;
+}
