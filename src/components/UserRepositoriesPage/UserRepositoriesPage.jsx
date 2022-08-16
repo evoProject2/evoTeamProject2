@@ -1,6 +1,10 @@
+import RepoCard from "./RepoCard.js";
+
 export const UserRepositoriesPage = () => {
-    return <div>
-        UserRepositoriesPage
-    </div>
-}
-export default UserRepositoriesPage
+  return (
+    <>
+      <RepoCard />
+    </>
+  );
+};
+export default UserRepositoriesPage;
