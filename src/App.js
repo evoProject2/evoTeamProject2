@@ -1,8 +1,8 @@
-import { Box } from "@mui/material";
+import { Paper } from "@mui/material";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
-import IntroPage from "./components/IntroPage/IntroPage";
-import UserRepositoriesPage from "./components/UserRepositoriesPage/UserRepositoriesPage";
+
+import IntroPage from "./pages/Home/IntroPage";
+import UserRepositories from "./pages/UserRepositories";
 
 function App() {
   const appStyle = {
@@ -16,14 +16,14 @@ function App() {
   };
 
   return (
-    <Box sx={appStyle}>
+    <Paper sx={appStyle}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<IntroPage />} />
-          <Route path="/:username" element={<UserRepositoriesPage />} />
+          <Route path="/:username" element={<UserRepositories />} />
         </Routes>
       </BrowserRouter>
-    </Box>
+    </Paper>
   );
 }
 
