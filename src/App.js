@@ -1,17 +1,15 @@
-import { Box } from "@mui/material";
+import { Box, Paper } from "@mui/material";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import {useState, useEffect} from "react";
-import { useSelector, useDispatch } from 'react-redux'
-import './App.css';
+import { useSelector, useDispatch } from "react-redux";
 import IntroPage from "./components/IntroPage/IntroPage";
 import UserRepositoriesPage from "./components/UserRepositoriesPage/UserRepositoriesPage";
-import {setUsername} from './userSlice'
-import {setInputValue} from './inputSlice'
+import { setUsername } from "./userSlice";
+import { setInputValue } from "./inputSlice";
 
 function App() {
-
-    const user = useSelector(state => state.user)
-    const dispatch = useDispatch()
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
   const appStyle = {
     width: "100%",
@@ -24,14 +22,14 @@ function App() {
   };
 
   return (
-    <Box sx={appStyle}>
+    <Paper sx={appStyle}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<IntroPage />} />
           <Route path="/:username" element={<UserRepositoriesPage />} />
         </Routes>
       </BrowserRouter>
-    </Box>
+    </Paper>
   );
 }
 
