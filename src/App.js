@@ -22,7 +22,7 @@ function App() {
     <Box sx={appStyle}>
       <BrowserRouter>
         <Routes>
-            <Route path="/" element={<IntroPage setUsername={setUsername}/>} />
+            <Route path="/" element={<IntroPage username={username} setUsername={setUsername}/>} />
             <Route path="/:username" element={<UserRepositoriesPage username={username}/>}  />
           <Route path="/" element={<IntroPage />} />
           <Route path="/:username" element={<UserRepositoriesPage />} />

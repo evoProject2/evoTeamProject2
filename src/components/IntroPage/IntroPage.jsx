@@ -11,14 +11,21 @@ import {
 } from "./IntroPageStyle";
 import classes from "./IntroPage.module.css";
 
-export const IntroPage = ({setUsername}) => {
-    const [inputValue, setInputValue] = useState('')
+export const IntroPage = ({username, setUsername}) => {
+    //const [inputValue, setInputValue] = useState('')
     let navigate = useNavigate()
 
     const handleFindButtonClicked = () => {
-        setUsername(inputValue)
-        navigate(`/${inputValue}`)
+        //setUsername(inputValue)
+        //navigate(`/${inputValue}`)
+        navigate(`/${username}`)
+        console.log(username)
         // navigate(`/${inputValue}`, { replace: true })    // if u want to restrict back hystory
+    }
+    const handleInputChange = (e) => {
+        setUsername(e.target.value)
+        //setInputValue(e.target.value)
+
     }
 
   return (
@@ -32,7 +39,7 @@ export const IntroPage = ({setUsername}) => {
           sx={inputAndBtnContainerStyle}
         >
           <Input
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => handleInputChange(e)}
             onKeyDown={(event) => {if (event.key === 'Enter') handleFindButtonClicked()}}
             placeholder={"Username"}
             sx={inputStyle}
