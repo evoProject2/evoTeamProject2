@@ -14,7 +14,7 @@ function App() {
 
     useEffect(()=> {
         console.log(user.username)
-        // dispatch(setUsername('bociasan'))
+        dispatch(setUsername('bociasan'))
         console.log(Object.keys(dispatch))
     }, [])
 
