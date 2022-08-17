@@ -1,5 +1,5 @@
 .language-bar-component-container{
-
+    width: 180px;
     display: flex;
     flex-direction: column;
 }
