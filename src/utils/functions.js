@@ -22,28 +22,6 @@ export const fetchUserAbout = async (username) => {
     return res;
 }
 
-export const createUserDataObject = async (username) => {
-  const getRepositories = async (rawData) => {
-    return await Promise.all(
-      rawData.map(async (el) => {
-        const languages = await fetchData(el.languages_url);
-        return {
-          // id: el.id,
-          name: el.name,
-          languages: languages,
-        };
-      })
-    );
-  };
-
-  const requstResult = await fetchUserData(username);
-  const repositories = await getRepositories(requstResult);
-  return {
-    username: username,
-    repositories: repositories,
-  };
-};
-
 export const getGithubLanguageColors = async () => {
     return await fetchData(GITHUB_LANGUAGE_COLORS)
 }
@@ -68,3 +46,7 @@ export const getRepositoriesByUsername = async (username) => {
     })
   );
 };
+
+export const capitalize = (word) => {
+    return word[0].toUpperCase()+word.slice(1).toLowerCase()
+}

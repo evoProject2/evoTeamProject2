@@ -1,6 +1,5 @@
 import { Paper } from "@mui/material";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import IntroPage from "./pages/Home/IntroPage";
 import UserRepositories from "./pages/UserRepositories";
 
@@ -18,7 +17,7 @@ function App() {
   };
 
   return (
-    <Paper sx={appStyle}>
+    <Paper sx={appStyle} className={"app"}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<IntroPage />} />
