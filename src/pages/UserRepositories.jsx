@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { getGithubLanguageColors } from "../utils/functions";
 import { setGithubColors } from "../githubSlice";
 import Box from "@mui/material/Box";
+import UserDetails from "../components/UserDetails";
 
 const UserRepositories = () => {
   const dispatch = useDispatch();
@@ -18,12 +19,27 @@ const UserRepositories = () => {
   }, []);
 
   return (
-    <Box sx={{ height: "100%" }}>
-      {user.repositories &&
-        user.repositories.map((repo) => (
-          <RepoCard key={repo.name} repo={repo} />
-        ))}
-    </Box>
+    <>
+      <Box
+        sx={{
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          marginRight: "15em",
+          marginTop: "2em",
+          marginLeft: "5em",
+        }}
+      >
+        <UserDetails />
+      </Box>
+
+      <Box sx={{ height: "100%" }}>
+        {user.repositories &&
+          user.repositories.map((repo) => (
+            <RepoCard key={repo.name} repo={repo} />
+          ))}
+      </Box>
+    </>
   );
 };
 
