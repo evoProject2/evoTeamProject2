@@ -22,7 +22,7 @@ export const FilterBar = () => {
     return <div className={"filter-bar-component-container"}>
         <div className={"filter-bar-component-title"}>Filters</div>
 
-        <div className={"filter-row"}>
+        {/*<div className={"filter-row"}>*/}
 
             <FormControl fullWidth>
                 <InputLabel id="sort-select-label">Sort type</InputLabel>
@@ -53,16 +53,9 @@ export const FilterBar = () => {
                     }
                 </RadioGroup>
             </FormControl>
-        </div>
+        {/*</div>*/}
 
-        <div className={"filter-row"}>
-            <div>
-                Sort type
-            </div>
-            <select>
-                {Object.keys(FILTER.sortBy).map(type => <option>{type}</option>)}
-            </select>
-        </div>
+
     </div>
 }
 
