@@ -1,18 +1,18 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    value: ''
-}
+  value: "",
+};
 
 export const inputSlice = createSlice({
-    name: 'input',
-    initialState,
-    reducers: {
-        setInputValue:  (state, newValue) => {
-            state.value = newValue
-        }
-    }
-})
+  name: "input",
+  initialState,
+  reducers: {
+    setInputValue: (state, newValue) => {
+      state.value = newValue;
+    },
+  },
+});
 
-export const { setInputValue } = inputSlice.actions
-export default inputSlice.reducer
+export const { setInputValue } = inputSlice.actions;
+export default inputSlice.reducer;

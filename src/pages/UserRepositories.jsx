@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import RepoCard from "../components/RepoCard";
 import { useEffect } from "react";
+import RepoFilesAndFolders from "../components/RepoFilesAndFolders/RepoFilesAndFolders";
 import { getGithubLanguageColors } from "../utils/functions";
 import { setGithubColors } from "../githubSlice";
 import Box from "@mui/material/Box";
@@ -34,9 +35,12 @@ const UserRepositories = () => {
       </Box>
 
       <Box sx={{ height: "100%" }}>
-        {user.repositories &&
+        {user.repositories.length > 0 &&
           user.repositories.map((repo) => (
-            <RepoCard key={repo.name} repo={repo} />
+            <div key={repo.name}>
+              <RepoCard repo={repo} />
+              <RepoFilesAndFolders repo={repo} />
+            </div>
           ))}
       </Box>
     </>

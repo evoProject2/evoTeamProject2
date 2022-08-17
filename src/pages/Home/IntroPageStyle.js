@@ -1,5 +1,7 @@
 export const introPageContainerStyle = {
   display: "flex",
+  height: "100vh",
+  width: "100%",
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
