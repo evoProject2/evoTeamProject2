@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setUserAbout, setUsername } from "../../userSlice";
+import { setFilteredRepositories, setUserAbout, setUsername} from "../../reducers/userSlice";
 import {
   fetchUserAbout,
   getRepositoriesByUsername,
   isAnUsername,
 } from "../../utils/functions";
 
-import { setRepositories } from "../../userSlice";
+import { setRepositories } from "../../reducers/userSlice";
 import { Box, Button, Typography } from "@mui/material";
 import Input from "@mui/material/Input";
 import {
@@ -18,6 +18,7 @@ import {
   inputAndBtnContainerStyle,
 } from "./IntroPageStyle";
 import classes from "./IntroPage.module.css";
+import {setNeedFilterFlag} from "../../reducers/filterSlice";
 
 export const IntroPage = () => {
   let navigate = useNavigate();
@@ -29,6 +30,8 @@ export const IntroPage = () => {
       const userRepo = await getRepositoriesByUsername(user.username);
       const userAbout = await fetchUserAbout(user.username);
       dispatch(setRepositories(userRepo));
+      // dispatch(setFilteredRepositories(userRepo))
+      dispatch(setNeedFilterFlag(true))
       dispatch(setUserAbout(userAbout));
 
       navigate(`/${user.username}`);

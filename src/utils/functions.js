@@ -20,49 +20,34 @@ export const fetchUserAbout = async (username) => {
   return res;
 };
 
-export const createUserDataObject = async (username) => {
-  const getRepositories = async (rawData) => {
-    return await Promise.all(
-      rawData.map(async (el) => {
-        const languages = await fetchData(el.languages_url);
-        return {
-          // id: el.id,
-          name: el.name,
-          languages: languages,
-        };
-      })
-    );
-  };
-
-  const requstResult = await fetchUserData(username);
-  const repositories = await getRepositories(requstResult);
-  return {
-    username: username,
-    repositories: repositories,
-  };
-};
-
 export const getGithubLanguageColors = async () => {
   return await fetchData(GITHUB_LANGUAGE_COLORS);
 };
 
 export const getRepositoriesByUsername = async (username) => {
-  const rawData = await fetchUserData(username);
-  //console.log(rawData)
-  return await Promise.all(
-    rawData.map(async (el) => {
-      const languages = await fetchData(el.languages_url);
-      // console.log(languages)
-      let totalSum = 0;
-      Object.keys(languages).forEach((lan) => (totalSum += languages[lan]));
-      el["total_rows_from_languages"] = totalSum;
-      el["languages"] = languages;
-      // return el
-      return {
-        name: el.name,
-        languages: languages,
-        total_rows_from_languages: totalSum,
-      };
+    const rawData = await fetchUserData(username);
+    //console.log(rawData)
+    return await Promise.all(
+        rawData.map(async (el) => {
+        const languages = await fetchData(el.languages_url);
+        // console.log(languages)
+        let totalSum = 0
+        Object.keys(languages).forEach(lan => totalSum += languages[lan])
+        el['total_rows_from_languages'] = totalSum
+        el['languages'] = languages
+        // return el
+            console.log(el)
+        return {
+            name: el.name,
+            languages: languages,
+            total_rows_from_languages: totalSum,
+            last_push: el.pushed_at,
+            full_name: el.full_name
+        };
     })
   );
 };
+
+export const capitalize = (word) => {
+    return word[0].toUpperCase()+word.slice(1).toLowerCase()
+}

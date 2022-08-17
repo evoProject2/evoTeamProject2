@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     username: '',
     repositories: [],
+    filteredRepositories: [],
     userAbout: {}
 }
 
@@ -13,6 +14,9 @@ export const userSlice = createSlice({
         setRepositories: (state, repos) => {
             state.repositories = repos.payload
         },
+        setFilteredRepositories: (state, repos) => {
+            state.filteredRepositories = repos.payload
+        },
         setUsername: (state, newName) => {
             state.username = newName.payload
         },
@@ -22,5 +26,5 @@ export const userSlice = createSlice({
     }
 })
 
-export const { setRepositories, setUsername, setUserAbout } = userSlice.actions
+export const { setRepositories, setUsername, setUserAbout, setFilteredRepositories } = userSlice.actions
 export default userSlice.reducer

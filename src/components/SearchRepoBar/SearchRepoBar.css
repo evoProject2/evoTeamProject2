@@ -1,0 +1,12 @@
+.search-bar-component-container{
+    width: 100%;
+    /*margin: 30px;*/
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar-input{
+    width: 80%;
+
+    padding: 10px;
+}

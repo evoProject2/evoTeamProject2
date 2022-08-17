@@ -21,7 +21,7 @@ export default function RepoCard({ repo }) {
         {repo?.name}
       </Typography>
       {/* TODO: Add multiple-colored progress bar here */}
-      <Box sx={{ display: "flex", flexDirectionl: "column" }}>
+      <Box sx={{ display: "flex", flexDirection: "row" }}>
         {Object.keys(repo.languages).map((lang, index) => (
           <Chip
             key={`${lang}-${index}`}
@@ -46,6 +46,7 @@ export default function RepoCard({ repo }) {
             colors={colors}
             languages={repo.languages}
             sum={repo.total_rows_from_languages}
+            repoName={repo?.name}
           />
         )}
       </Box>
