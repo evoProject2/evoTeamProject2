@@ -1,0 +1,38 @@
+.language-bar-component-container{
+
+    display: flex;
+    flex-direction: column;
+}
+
+.language-bar-container{
+    display: flex;
+    flex-direction: row;
+    /*border-radius: 50px;*/
+    /*border: 2px solid crimson;*/
+}
+
+.language-segment{
+    height: 5px;
+}
+
+.language-circle{
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+}
+
+.language-bar-title{
+    /*margin-bottom: 10px;*/
+}
+
+.language-bar-percentages-row{
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.language-name{
+    margin-left: 10px;
+}
