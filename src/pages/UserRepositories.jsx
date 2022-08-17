@@ -1,19 +1,23 @@
 import { useSelector } from "react-redux";
 import RepoCard from "../components/RepoCard";
-import {useEffect} from "react";
+import { useEffect } from "react";
+import RepoFilesAndFolders from "../components/RepoFilesAndFolders/RepoFilesAndFolders";
 
 export const UserRepositories = () => {
   const user = useSelector((state) => state.user);
 
   useEffect(() => {
-    console.log(user)
-  }, [])
+    console.log(user);
+  }, []);
 
   return (
     <div>
-      {user.repositories &&
+      {user.repositories.length > 0 &&
         user.repositories.map((repo) => (
-          <RepoCard key={repo.name} repo={repo} />
+          <div key={repo.name}>
+            <RepoCard repo={repo} />
+            <RepoFilesAndFolders repo={repo} />
+          </div>
         ))}
     </div>
   );

@@ -7,7 +7,6 @@ import UserRepositories from "./pages/UserRepositories";
 function App() {
   const appStyle = {
     width: "100%",
-    height: "100vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",

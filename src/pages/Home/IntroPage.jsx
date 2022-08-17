@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import {setUsername} from "../../userSlice";
-import { getRepositoriesByUsername, isAnUsername} from "../../utils/functions";
+import { setUsername } from "../../userSlice";
+import { getRepositoriesByUsername, isAnUsername } from "../../utils/functions";
 import { setRepositories } from "../../userSlice";
 import { Box, Button, Typography } from "@mui/material";
 import Input from "@mui/material/Input";
@@ -16,7 +16,6 @@ import classes from "./IntroPage.module.css";
 
 export const IntroPage = () => {
   let navigate = useNavigate();
-
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
@@ -58,15 +57,6 @@ export const IntroPage = () => {
       </Box>
     </Box>
   );
-
-  // return <div className={"intro-page-container"}>
-  //     <div> Find user repositories </div>
-  //     <div>
-  //         <input onKeyDown={(event) => {if (event.key === 'Enter') handleFindButtonClicked()}}
-  //                onChange={(e) => dispatch(setUsername(e.target.value))} placeholder={"Username"}/>
-  //         <button onClick={() => handleFindButtonClicked()}> Find </button>
-  //     </div>
-  // </div>
 };
 
 export default IntroPage;
