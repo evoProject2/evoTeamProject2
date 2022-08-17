@@ -45,11 +45,12 @@ export const getRepositoriesByUsername = async (username) => {
   return await Promise.all(
     rawData.map(async (el) => {
       const languages = await fetchData(el.languages_url);
-      return {
-        // id: el.id,
-        name: el.name,
-        languages: languages,
-      };
+      el['languages'] = languages
+      return el
+      // return {
+      //   name: el.name,
+      //   languages: languages,
+      // };
     })
   );
 };

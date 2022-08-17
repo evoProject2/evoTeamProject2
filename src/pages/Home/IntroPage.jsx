@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setUsername } from "../../userSlice";
-import { getRepositoriesByUsername, isAnUsername } from "../../utils/functions";
+import {setUsername} from "../../userSlice";
+import { getRepositoriesByUsername, isAnUsername} from "../../utils/functions";
 import { setRepositories } from "../../userSlice";
 import { Box, Button, Typography } from "@mui/material";
 import Input from "@mui/material/Input";
