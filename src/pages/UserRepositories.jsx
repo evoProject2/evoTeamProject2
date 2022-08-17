@@ -1,6 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import RepoCard from "../components/RepoCard";
 import {useEffect} from "react";
+import RepoFilesAndFolders from "../components/RepoFilesAndFolders/RepoFilesAndFolders";
 import {getGithubLanguageColors} from "../utils/functions";
 import {setGithubColors} from "../reducers/githubSlice";
 import FilterLogic from '../components/FilterLogic/FilterLogic'
@@ -50,7 +51,10 @@ const UserRepositories = () => {
                 <Box sx={{height: "100%"}}>
                     {user.filteredRepositories &&
                     user.filteredRepositories.map((repo) => (
-                        <RepoCard key={repo.name} repo={repo}/>
+                        <div key={repo.name}>
+                            <RepoCard repo={repo} />
+                            <RepoFilesAndFolders repo={repo} />
+                        </div>
                     ))}
                 </Box>
             </Box>
