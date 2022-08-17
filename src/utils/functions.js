@@ -1,4 +1,4 @@
-import { REPOS_URL } from "./constants";
+import { ABOUT_URL, GITHUB_LANGUAGE_COLORS, REPOS_URL } from "./constants";
 
 export const fetchData = async (url) => {
   const res = await fetch(url);
@@ -13,6 +13,11 @@ export const isAnUsername = async (inputValue) => {
 
 export const fetchUserData = async (username) => {
   return await fetchData(REPOS_URL(username));
+};
+
+export const fetchUserAbout = async (username) => {
+  const res = await fetchData(ABOUT_URL(username));
+  return res;
 };
 
 export const createUserDataObject = async (username) => {
@@ -37,18 +42,27 @@ export const createUserDataObject = async (username) => {
   };
 };
 
+export const getGithubLanguageColors = async () => {
+  return await fetchData(GITHUB_LANGUAGE_COLORS);
+};
+
 export const getRepositoriesByUsername = async (username) => {
   const rawData = await fetchUserData(username);
   //console.log(rawData)
   return await Promise.all(
     rawData.map(async (el) => {
       const languages = await fetchData(el.languages_url);
+      // console.log(languages)
+      let totalSum = 0;
+      Object.keys(languages).forEach((lan) => (totalSum += languages[lan]));
+      el["total_rows_from_languages"] = totalSum;
       el["languages"] = languages;
-      return el;
-      // return {
-      //   name: el.name,
-      //   languages: languages,
-      // };
+      // return el
+      return {
+        name: el.name,
+        languages: languages,
+        total_rows_from_languages: totalSum,
+      };
     })
   );
 };
