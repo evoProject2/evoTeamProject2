@@ -8,7 +8,6 @@ export const fetchData = async (url) => {
 
 export const isAnUsername = async (inputValue) => {
   const result = await fetch(REPOS_URL(inputValue));
-
   return result.status === 200 ? true : false;
 };
 
