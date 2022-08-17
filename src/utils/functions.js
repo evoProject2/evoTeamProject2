@@ -41,7 +41,8 @@ export const getRepositoriesByUsername = async (username) => {
             name: el.name,
             languages: languages,
             total_rows_from_languages: totalSum,
-            last_push: el.pushed_at
+            last_push: el.pushed_at,
+            full_name: el.full_name
         };
     })
   );
