@@ -22,7 +22,7 @@ export const inputStyle = {
   color: "#fff",
   padding: "4px 10px",
   borderRadius: "2px",
-  transition: "width 300ms ease-in-out, display 300ms ease-in-out",
+  transition: "width 300ms ease-in-out, visibility 300ms ease-in-out",
 };
 
 export const introBtnStyle = {
