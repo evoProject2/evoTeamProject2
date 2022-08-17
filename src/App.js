@@ -14,6 +14,7 @@ function App() {
     backgroundColor: "#0d1117",
     color: "#FFFFFF",
     overflow: "auto",
+    minHeight: "100vh",
   };
 
   return (
