@@ -6,7 +6,7 @@ export const LanguagesBar = ({languages, sum, colors}) => {
             <div className={"language-bar-title"}>Languages</div>
             <div className={"language-bar-container"}>
                 {Object.keys(languages).map(language =>
-                    <div className={"language-segment"} style={{width:`${languages[language]/sum*100}%`, backgroundColor: colors[language].color}}>
+                    <div className={"language-segment"} style={{width:`${languages[language]/sum*100+3}%`, backgroundColor: colors[language].color}}>
                     </div>)}
             </div>
             <div className={"language-bar-percentages-container"}>

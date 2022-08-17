@@ -16,6 +16,7 @@
 
 .language-segment{
     height: 5px;
+    /*min-width: 5px;*/
 }
 
 .language-circle{
