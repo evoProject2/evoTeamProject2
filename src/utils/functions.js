@@ -1,4 +1,4 @@
-import {GITHUB_LANGUAGE_COLORS, REPOS_URL} from "./constants";
+import {ABOUT_URL, GITHUB_LANGUAGE_COLORS, REPOS_URL} from "./constants";
 
 export const fetchData = async (url) => {
   const res = await fetch(url);
@@ -16,6 +16,11 @@ export const isAnUsername = async (inputValue) => {
 export const fetchUserData = async (username) => {
   return await fetchData(REPOS_URL(username));
 };
+
+export const fetchUserAbout = async (username) => {
+    const res = await fetchData(ABOUT_URL(username))
+    return res;
+}
 
 export const createUserDataObject = async (username) => {
   const getRepositories = async (rawData) => {
@@ -40,7 +45,6 @@ export const createUserDataObject = async (username) => {
 };
 
 export const getGithubLanguageColors = async () => {
-    // const rawData = await fetchData(GITHUB_LANGUAGE_COLORS);
     return await fetchData(GITHUB_LANGUAGE_COLORS)
 }
 
@@ -55,11 +59,12 @@ export const getRepositoriesByUsername = async (username) => {
         Object.keys(languages).forEach(lan => totalSum += languages[lan])
         el['total_rows_from_languages'] = totalSum
         el['languages'] = languages
-        return el
-        // return {
-        //     name: el.name,
-        //     languages: languages,
-        // };
+        // return el
+        return {
+            name: el.name,
+            languages: languages,
+            total_rows_from_languages: totalSum
+        };
     })
   );
 };

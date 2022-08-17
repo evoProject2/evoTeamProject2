@@ -8,11 +8,11 @@ export const UserRepositories = () => {
 
   const dispatch = useDispatch()
   const user = useSelector((state) => state.user);
+  const userAbout = user.userAbout
 
   useEffect(() => {
     getGithubLanguageColors().then(colors => dispatch(setGithubColors(colors)))
-    console.log(user)
-
+    // console.log(userAbout)
   }, [])
 
   return (
