@@ -4,8 +4,9 @@ export const FILTER = {
         descending: 'descending'
     },
     sortBy : {
+        none: 'none',
+        name: 'name',
         time: 'time',
-        name: 'name'
+        lastUpdate: 'last update',
     }
-
 }

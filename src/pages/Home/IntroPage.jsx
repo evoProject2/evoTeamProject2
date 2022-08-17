@@ -13,6 +13,7 @@ import {
   inputAndBtnContainerStyle,
 } from "./IntroPageStyle";
 import classes from "./IntroPage.module.css";
+import {setNeedFilterFlag} from "../../reducers/filterSlice";
 
 export const IntroPage = () => {
   let navigate = useNavigate();
@@ -25,7 +26,8 @@ export const IntroPage = () => {
       const userRepo = await getRepositoriesByUsername(user.username)
       const userAbout = await fetchUserAbout(user.username)
       dispatch(setRepositories(userRepo))
-      dispatch(setFilteredRepositories(userRepo))
+      // dispatch(setFilteredRepositories(userRepo))
+      dispatch(setNeedFilterFlag(true))
       dispatch(setUserAbout(userAbout))
 
       navigate(`/${user.username}`);

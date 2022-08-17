@@ -38,10 +38,12 @@ export const getRepositoriesByUsername = async (username) => {
         el['total_rows_from_languages'] = totalSum
         el['languages'] = languages
         // return el
+            console.log(el)
         return {
             name: el.name,
             languages: languages,
-            total_rows_from_languages: totalSum
+            total_rows_from_languages: totalSum,
+            last_push: el.pushed_at
         };
     })
   );

@@ -3,6 +3,7 @@ import RepoCard from "../components/RepoCard";
 import {useEffect} from "react";
 import {getGithubLanguageColors} from "../utils/functions";
 import {setGithubColors} from "../reducers/githubSlice";
+import FilterLogic from '../components/FilterLogic/FilterLogic'
 import Box from "@mui/material/Box";
 import UserDetails from "../components/UserDetails";
 import SearchRepoBar from "../components/SearchRepoBar/SearchRepoBar";
@@ -55,6 +56,7 @@ const UserRepositories = () => {
             </Box>
 
             <FilterBar/>
+            <FilterLogic/>
         </>
     );
 };

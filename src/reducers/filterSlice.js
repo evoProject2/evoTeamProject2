@@ -1,22 +1,24 @@
-import { createSlice } from '@reduxjs/toolkit'
+import {createSlice} from '@reduxjs/toolkit'
 import {FILTER} from "../components/FilterBar/filterConstants";
+import {filterRepos} from "../components/FilterBar/filterFunctions";
 
 const initialState = {
     inputValue: '',
+    show: false,
     filterToggle: false,
+    needFilterFlag: false,
     filters: [],
     sorting: {
-        sortingType: FILTER.sortBy.name,
-        sortingDirection: FILTER.directions.ascending
+        type: FILTER.sortBy.none,
+        direction: FILTER.directions.ascending
     },
-    sortingType: FILTER.sortBy.name
 }
 
 export const filterSlice = createSlice({
     name: 'input',
     initialState,
     reducers: {
-        setInputValue:  (state, newValue) => {
+        setInputValue: (state, newValue) => {
             state.inputValue = newValue.payload
         },
         setFilterToggleTo: (state, value) => {
@@ -25,15 +27,30 @@ export const filterSlice = createSlice({
         toggleFilterToggle: (state) => {
             state.filterToggle = !state.filterToggle
         },
-        setDirection: (state, direction) => {
-            state.direction = direction.payload
+        showFiltersToggle: (state) => {
+            state.show = !state.show
+        },
+        setSortingDirection: (state, direction) => {
+            state.sorting.direction = direction.payload
         },
         setSortingType: (state, type) => {
-            state.sortingType = type.payload
+            state.sorting.type = type.payload
+        },
+        setNeedFilterFlag: (state, flag) => {
+            state.needFilterFlag = flag.payload
         }
+
 
     }
 })
 
-export const { setInputValue, setFilterToggleTo, toggleFilterToggle, setSortingType } = filterSlice.actions
+export const {
+    setInputValue,
+    setFilterToggleTo,
+    toggleFilterToggle,
+    setSortingType,
+    setSortingDirection,
+    showFiltersToggle,
+    setNeedFilterFlag,
+} = filterSlice.actions
 export default filterSlice.reducer
