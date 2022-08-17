@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {compareFunction, filterRepositoriesFunction, nameCompareFunction} from "../FilterBar/filterFunctions";
+import {compareFunction, filterRepositoriesFunction} from "../FilterBar/filterFunctions";
 import {setFilteredRepositories} from "../../reducers/userSlice";
 import {setNeedFilterFlag} from "../../reducers/filterSlice";
 import {FILTER} from "../FilterBar/filterConstants";
@@ -20,14 +20,13 @@ export const FilterLogic = () => {
                 }
             })
 
-            console.log(filter.sorting.type)
+            // console.log(filter.sorting.type)
 
             switch (filter.sorting.type) {
-                case FILTER.sortBy.name:
+                case 'name':
                     filteredRepos.sort((a, b) => compareFunction(a.name.toLowerCase(), b.name.toLowerCase(), filter.sorting.direction))
                     break
-                case FILTER.sortBy.lastUpdate:
-                    // console.log(filteredRepos[0])
+                case 'lastUpdate':
                     filteredRepos.sort((a, b) => compareFunction(a.last_push, b.last_push, filter.sorting.direction))
                     break
 

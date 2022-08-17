@@ -6,7 +6,6 @@ export const FILTER = {
     sortBy : {
         none: 'none',
         name: 'name',
-        time: 'time',
         lastUpdate: 'last update',
     }
 }

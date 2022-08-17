@@ -39,11 +39,11 @@ const UserRepositories = () => {
 
             <Box sx={{
                 height: "100%",
-                display: "flex",
-                flexDirection: "column",
-                marginRight: "15em",
-                marginTop: "2em",
-                marginLeft: "5em",
+                // display: "flex",
+                // flexDirection: "column",
+                // marginRight: "15em",
+                // marginTop: "2em",
+                // marginLeft: "5em",
             }}>
 
                 <SearchRepoBar/>

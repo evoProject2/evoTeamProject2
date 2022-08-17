@@ -5,12 +5,6 @@ export const filterRepositoriesFunction = ({repo, filter}) => {
         return true
 }
 
-export const nameCompareFunction = (a, b) => {
-    if (a>b) return 1
-    if (a<b) return -1
-    return 0
-}
-
 export const compareFunction = (a, b, direction) => {
 
     if (direction === FILTER.directions.ascending){
