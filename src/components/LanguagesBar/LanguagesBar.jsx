@@ -14,6 +14,8 @@ export const LanguagesBar = ({languages, sum, colors}) => {
                     <div className={"language-bar-percentages-row"}>
                         <div className={"language-circle"} style={{backgroundColor: colors[language].color}}/>
                         <div className={"language-name"}> { language } </div>
+                        <div className={"language-percentage"}> { `${(languages[language]/sum*100).toFixed(1)}%` } </div>
+
                     </div>)}
 
         </div>

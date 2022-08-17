@@ -36,3 +36,8 @@
 .language-name{
     margin-left: 10px;
 }
+
+ .language-percentage{
+     color: gray;
+     margin-left: 10px;
+ }
