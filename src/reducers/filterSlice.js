@@ -5,12 +5,11 @@ import {filterRepos} from "../components/FilterBar/filterFunctions";
 const initialState = {
     inputValue: '',
     show: false,
-    filterToggle: false,
     needFilterFlag: false,
     filters: [],
     sorting: {
-        type: FILTER.sortBy.none,
-        direction: FILTER.directions.ascending
+        type: 'none',
+        direction: 'ascending'
     },
 }
 
@@ -20,12 +19,6 @@ export const filterSlice = createSlice({
     reducers: {
         setInputValue: (state, newValue) => {
             state.inputValue = newValue.payload
-        },
-        setFilterToggleTo: (state, value) => {
-            state.filterToggle = value.payload
-        },
-        toggleFilterToggle: (state) => {
-            state.filterToggle = !state.filterToggle
         },
         showFiltersToggle: (state) => {
             state.show = !state.show
@@ -46,8 +39,6 @@ export const filterSlice = createSlice({
 
 export const {
     setInputValue,
-    setFilterToggleTo,
-    toggleFilterToggle,
     setSortingType,
     setSortingDirection,
     showFiltersToggle,
