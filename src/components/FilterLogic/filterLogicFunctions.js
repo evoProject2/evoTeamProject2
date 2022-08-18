@@ -1,7 +1,7 @@
 import {compareFunction, filterRepositoriesFunction} from "../FilterBar/filterFunctions";
 import {FILTER} from "../FilterBar/filterConstants";
 
-export const sortBy =  {
+export const sortBy = {
     name: (filteredRepos, direction) =>
         filteredRepos.sort((a, b) => compareFunction(a.name.toLowerCase(), b.name.toLowerCase(), direction)),
     lastUpdate: (filteredRepos, direction) =>
@@ -18,4 +18,21 @@ export const filterByRepositoryName = (allRepositories, filter) => {
         }
     })
     return filteredRepos
+}
+
+export const filterByLanguages = (repos, languages) => {
+    const selectedLanguages = Object.keys(languages).filter(checkBoxLanguage => languages[checkBoxLanguage].selected)
+    if (selectedLanguages.length === 0)
+        return repos
+
+    return repos.filter(repo => {
+        let flag = false
+        selectedLanguages.forEach(checkBoxLanguage => {
+            if (repo.languages[languages[checkBoxLanguage].name]) {
+                flag = true
+            }
+        })
+        return flag
+    })
+
 }
