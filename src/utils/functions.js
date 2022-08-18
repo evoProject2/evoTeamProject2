@@ -25,29 +25,29 @@ export const getGithubLanguageColors = async () => {
 };
 
 export const getRepositoriesByUsername = async (username) => {
-    const rawData = await fetchUserData(username);
-    //console.log(rawData)
-    return await Promise.all(
-        rawData.map(async (el) => {
-        const languages = await fetchData(el.languages_url);
-        // console.log(languages)
-        let totalSum = 0
-        Object.keys(languages).forEach(lan => totalSum += languages[lan])
-        el['total_rows_from_languages'] = totalSum
-        el['languages'] = languages
-        // return el
-            console.log(el)
-        return {
-            name: el.name,
-            languages: languages,
-            total_rows_from_languages: totalSum,
-            last_push: el.pushed_at,
-            full_name: el.full_name
-        };
+  const rawData = await fetchUserData(username);
+  //console.log(rawData)
+  return await Promise.all(
+    rawData.map(async (el) => {
+      const languages = await fetchData(el.languages_url);
+      // console.log(languages)
+      let totalSum = 0;
+      Object.keys(languages).forEach((lan) => (totalSum += languages[lan]));
+      el["total_rows_from_languages"] = totalSum;
+      el["languages"] = languages;
+      // return el
+      // console.log(el)
+      return {
+        name: el.name,
+        languages: languages,
+        total_rows_from_languages: totalSum,
+        last_push: el.pushed_at,
+        full_name: el.full_name,
+      };
     })
   );
 };
 
 export const capitalize = (word) => {
-    return word[0].toUpperCase()+word.slice(1).toLowerCase()
-}
+  return word[0].toUpperCase() + word.slice(1).toLowerCase();
+};
