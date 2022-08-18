@@ -31,6 +31,7 @@ const UserRepositories = () => {
 
     return (
         <>
+
             <Box
                 sx={{
                     height: "100%",
@@ -43,6 +44,7 @@ const UserRepositories = () => {
             >
                 <UserDetails/>
             </Box>
+
             <Box
                 sx={{
                     height: "100%",
@@ -53,7 +55,10 @@ const UserRepositories = () => {
                     // marginLeft: "5em",
                 }}
             >
+
                 <SearchRepoBar/>
+
+
                 <Grid sx={{height: "100%"}}container spacing={2}>
                     {user.filteredRepositories &&
                     user.filteredRepositories.map((repo) => (
@@ -63,7 +68,6 @@ const UserRepositories = () => {
                     ))}
                 </Grid>
             </Box>
-            <FilterBar/>
             <FilterLogic/>
         </>
     );
