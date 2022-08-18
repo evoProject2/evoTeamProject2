@@ -1,49 +1,57 @@
-.language-bar-component-container{
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
-    font-size: 12px !important;
-    width: 180px;
-    display: flex;
-    flex-direction: column;
+.language-bar-component-container {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 12px !important;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
 }
 
-.language-bar-container{
-    display: flex;
-    flex-direction: row;
-    overflow: hidden;
-    border-radius: 25px;
-    /*border: 2px solid crimson;*/
+.language-bar-container {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  border-radius: 25px;
+  /*border: 2px solid crimson;*/
 }
 
-.language-segment{
-    height: 5px;
-    /*min-width: 5px;*/
+.language-segment {
+  height: 5px;
+
+  /*min-width: 5px;*/
 }
 
-.language-circle{
-    height: 6px;
-    width: 6px;
-    border-radius: 50%;
+.language-circle {
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 10px;
 }
 
-.language-bar-title{
-    font-size: 16px !important;
-    margin-bottom: 7px;
+.language-bar-title {
+  font-size: 16px !important;
+  margin-bottom: 7px;
 }
 
-.language-bar-percentages-row{
-    display: flex;
-    flex-direction: row;
-    margin: 5px;
-    align-items: center;
-    justify-content: flex-start;
+.language-bar-percentages-row {
+  display: inline-block;
+  max-width: 400px;
+  margin-top: 5px;
+  /* flex-direction: row;
+  margin: 5px;
+  align-items: center;
+  justify-content: flex-start; */
 }
 
-.language-name{
-    margin-left: 10px;
+.language-name {
+  margin-left: 7px;
+  display: inline-block;
 }
 
- .language-percentage{
-     color: #7a8286;
-     margin-left: 10px;
-     font-size: 12px !important;
- }
+.language-percentage {
+  color: #7a8286;
+  margin-left: 10px;
+  font-size: 12px !important;
+  display: inline-block;
+}
