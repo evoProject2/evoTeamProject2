@@ -1,6 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setFilteredRepositories, setUserAbout, setUsername} from "../../reducers/userSlice";
+import {
+  setFilteredRepositories,
+  setUserAbout,
+  setUsername,
+} from "../../reducers/userSlice";
 import {
   fetchUserAbout,
   getRepositoriesByUsername,
@@ -18,7 +22,7 @@ import {
   inputAndBtnContainerStyle,
 } from "./IntroPageStyle";
 import classes from "./IntroPage.module.css";
-import {setNeedFilterFlag} from "../../reducers/filterSlice";
+import { setNeedFilterFlag } from "../../reducers/filterSlice";
 
 export const IntroPage = () => {
   let navigate = useNavigate();
@@ -31,7 +35,7 @@ export const IntroPage = () => {
       const userAbout = await fetchUserAbout(user.username);
       dispatch(setRepositories(userRepo));
       // dispatch(setFilteredRepositories(userRepo))
-      dispatch(setNeedFilterFlag(true))
+      dispatch(setNeedFilterFlag(true));
       dispatch(setUserAbout(userAbout));
 
       navigate(`/${user.username}`);

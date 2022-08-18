@@ -8,20 +8,18 @@ const RepoFilesAndFolders = ({ repo }) => {
   const getRepoContent = async () => {
     const data = await fetch(fileApi);
     const res = await data.json();
-    console.log(res);
     if (!res.documentation_url) {
       // Fix the object problem when I have an empty repo
       setFilesAndFolder(res);
     }
   };
-
   useEffect(() => {
     getRepoContent();
   }, []);
 
   return (
     <div>
-      <ul>
+      <ul style={{ listStyle: "none" }}>
         {filesAndFolders.map((el) => (
           <li key={el.name}>{el.name}</li>
         ))}
