@@ -59,7 +59,7 @@ export default filterSlice.reducer;
     needFilterFlag: false,
     filters: [],
     sorting: {
-        type: 'none',
+        type: 'disabled',
         direction: 'ascending'
     },
 }
