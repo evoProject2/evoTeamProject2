@@ -36,7 +36,7 @@ export const getRepositoriesByUsername = async (username) => {
       el["total_rows_from_languages"] = totalSum;
       el["languages"] = languages;
       // return el
-      // console.log(el)
+      console.log(el);
       return {
         name: el.name,
         languages: languages,
@@ -49,5 +49,7 @@ export const getRepositoriesByUsername = async (username) => {
 };
 
 export const capitalize = (word) => {
-  return word[0].toUpperCase() + word.slice(1).toLowerCase();
+  return word.length > 0
+    ? word[0].toUpperCase() + word.slice(1).toLowerCase()
+    : word;
 };

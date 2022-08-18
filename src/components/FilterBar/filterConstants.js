@@ -4,7 +4,7 @@ export const FILTER = {
         descending: 'descending'
     },
     sortBy : {
-        none: 'none',
+        disabled: 'disabled',
         name: 'name',
         lastUpdate: 'last update',
     }
