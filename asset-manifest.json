@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/evoTeamProject2/static/css/main.9cc7c82b.css",
-    "main.js": "/evoTeamProject2/static/js/main.665c97e4.js",
-    "index.html": "/evoTeamProject2/index.html",
-    "main.9cc7c82b.css.map": "/evoTeamProject2/static/css/main.9cc7c82b.css.map",
-    "main.665c97e4.js.map": "/evoTeamProject2/static/js/main.665c97e4.js.map"
+    "main.css": "/appp/static/css/main.9cc7c82b.css",
+    "main.js": "/appp/static/js/main.665c97e4.js",
+    "index.html": "/appp/index.html",
+    "main.9cc7c82b.css.map": "/appp/static/css/main.9cc7c82b.css.map",
+    "main.665c97e4.js.map": "/appp/static/js/main.665c97e4.js.map"
   },
   "entrypoints": [
     "static/css/main.9cc7c82b.css",
