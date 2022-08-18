@@ -8,6 +8,7 @@ import Box from "@mui/material/Box";
 import UserDetails from "../components/UserDetails";
 import SearchRepoBar from "../components/SearchRepoBar/SearchRepoBar";
 import FilterBar from "../components/FilterBar/FilterBar";
+import Grid from "@mui/material/Grid";
 
 const UserRepositories = () => {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ const UserRepositories = () => {
           marginRight: "15em",
           marginTop: "2em",
           marginLeft: "5em",
+          alignSelf: "self-start",
         }}
       >
         <UserDetails />
@@ -46,14 +48,14 @@ const UserRepositories = () => {
         }}
       >
         <SearchRepoBar />
-        <Box sx={{ height: "100%" }}>
+        <Grid sx={{ height: "100%" }} container spacing={2}>
           {user.filteredRepositories &&
             user.filteredRepositories.map((repo) => (
-              <div key={repo.name}>
+              <Grid item key={repo.name} xs={6}>
                 <RepoCard repo={repo} />
-              </div>
+              </Grid>
             ))}
-        </Box>
+        </Grid>
       </Box>
       <FilterBar />
       <FilterLogic />

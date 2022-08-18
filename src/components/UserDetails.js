@@ -15,7 +15,12 @@ const UserDetails = () => {
 
   return (
     <>
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
         <Avatar
           src={userAbout.avatar_url}
           sx={{
@@ -26,18 +31,24 @@ const UserDetails = () => {
 
         <Box
           sx={{
-            marginLeft: "2em",
+            // marginLeft: "2em",
             marginTop: "2em",
           }}
         >
-          <Typography level="h4">
+          <Typography variant="h4">
             {userAbout.name}
-            <Typography variant="soft" level="h6" ml="0.5em">
-              {userAbout.login}
-            </Typography>
+            <Typography variant="h5">{userAbout.login}</Typography>
           </Typography>
         </Box>
-        <Box sx={{ maxWidth: "300px", marginLeft: "2em", marginTop: "1em" }}>
+        <Box
+          sx={{
+            maxWidth: "300px",
+            marginTop: "1em",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <Typography level="h6">{userAbout.bio}</Typography>
         </Box>
       </Box>
