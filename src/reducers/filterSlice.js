@@ -36,6 +36,10 @@ export const filterSlice = createSlice({
         },
         toggleSelectedLanguage: (state, languageName) => {
             state.languages[languageName.payload].selected = !state.languages[languageName.payload].selected
+        },
+        resetFilters: (state) => {
+            state.sorting = initialState.sorting
+            Object.keys(state.languages).forEach(lang => state.languages[lang].selected = false)
         }
     }
 })
@@ -48,5 +52,6 @@ export const {
     setNeedFilterFlag,
     setLanguages,
     toggleSelectedLanguage,
+    resetFilters,
 } = filterSlice.actions
 export default filterSlice.reducer
