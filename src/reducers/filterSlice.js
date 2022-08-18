@@ -8,7 +8,7 @@ const initialState = {
     needFilterFlag: false,
     filters: [],
     sorting: {
-        type: 'none',
+        type: 'disabled',
         direction: 'ascending'
     },
 }

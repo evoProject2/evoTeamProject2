@@ -4,6 +4,7 @@ import {compareFunction, filterRepositoriesFunction} from "../FilterBar/filterFu
 import {setFilteredRepositories} from "../../reducers/userSlice";
 import {setNeedFilterFlag} from "../../reducers/filterSlice";
 import {FILTER} from "../FilterBar/filterConstants";
+import {filterByRepositoryName, sortBy} from "./filterLogicFunctions";
 
 export const FilterLogic = () => {
     const needFilterFlag = useSelector(state => state.filter.needFilterFlag)
@@ -14,29 +15,9 @@ export const FilterLogic = () => {
     useEffect(() => {
         if (needFilterFlag) {
             let filteredRepos = []
-            user.repositories.forEach(repo => {
-                if (filterRepositoriesFunction({repo, filter})) {
-                    filteredRepos.push(repo)
-                }
-            })
 
-            // console.log(filter.sorting.type)
-
-            switch (filter.sorting.type) {
-                case 'name':
-                    filteredRepos.sort((a, b) => compareFunction(a.name.toLowerCase(), b.name.toLowerCase(), filter.sorting.direction))
-                    break
-                case 'lastUpdate':
-                    filteredRepos.sort((a, b) => compareFunction(a.last_push, b.last_push, filter.sorting.direction))
-                    break
-
-                case FILTER.sortBy.none:
-                    break
-
-                default:
-                    break
-            }
-
+            filteredRepos = filterByRepositoryName(user.repositories, filter)
+            filteredRepos = sortBy[filter.sorting.type](filteredRepos, filter.sorting.direction)
 
             dispatch(setFilteredRepositories(filteredRepos))
             dispatch(setNeedFilterFlag(false))
