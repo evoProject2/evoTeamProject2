@@ -4,9 +4,17 @@ import Chip from "@mui/material/Chip";
 import Box from "@mui/material/Box";
 import LanguagesBar from "./LanguagesBar/LanguagesBar";
 import { useSelector } from "react-redux";
+import RepoFilesAndFolders from "./RepoFilesAndFolders/RepoFilesAndFolders";
+import { useState } from "react";
 
 export default function RepoCard({ repo }) {
+  const [showComponent, setShowComponet] = useState(false);
   const colors = useSelector((state) => state.github.colors);
+
+  const handleShowComponet = () => {
+    setShowComponet(!showComponent);
+  };
+
   return (
     <Card
       sx={{
@@ -17,10 +25,15 @@ export default function RepoCard({ repo }) {
         minWidth: "500px",
       }}
     >
-      <Typography variant="h5" mb="15px">
+      <Typography
+        variant="h5"
+        mb="15px"
+        sx={{ cursor: "pointer" }}
+        onClick={handleShowComponet}
+      >
         {repo?.name}
       </Typography>
-      {/* TODO: Add multiple-colored progress bar here */}
+      {showComponent && <RepoFilesAndFolders repo={repo} />}
       <Box sx={{ display: "flex", flexDirection: "row" }}>
         {Object.keys(repo.languages).map((lang, index) => (
           <Chip

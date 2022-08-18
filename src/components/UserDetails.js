@@ -31,7 +31,7 @@ const UserDetails = () => {
           }}
         >
           <Typography level="h4">
-            {userAbout.name}{" "}
+            {userAbout.name}
             <Typography variant="soft" level="h6" ml="0.5em">
               {userAbout.login}
             </Typography>
