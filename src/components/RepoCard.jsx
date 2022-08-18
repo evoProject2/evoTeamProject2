@@ -12,7 +12,7 @@ export default function RepoCard({ repo }) {
   const colors = useSelector((state) => state.github.colors);
 
   const handleShowComponet = () => {
-    setShowComponet(!showComponent);
+    setShowComponet((showComponent) => !showComponent);
   };
 
   return (

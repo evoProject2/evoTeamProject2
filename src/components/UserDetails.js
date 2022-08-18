@@ -24,7 +24,6 @@ const UserDetails = () => {
             outline: "3px solid #fff",
           }}
         />
-
         <Box
           sx={{
             marginLeft: "2em",
