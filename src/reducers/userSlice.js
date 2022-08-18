@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import {createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
     username: '',
@@ -22,9 +22,14 @@ export const userSlice = createSlice({
         },
         setUserAbout: (state, data) => {
             state.userAbout = data.payload
-        }
+        },
     }
 })
 
-export const { setRepositories, setUsername, setUserAbout, setFilteredRepositories } = userSlice.actions
+export const {
+    setRepositories,
+    setUsername,
+    setUserAbout,
+    setFilteredRepositories,
+} = userSlice.actions
 export default userSlice.reducer

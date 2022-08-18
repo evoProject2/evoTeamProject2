@@ -8,7 +8,7 @@ import githubReducer from './reducers/githubSlice'
 function saveToLocalStorage(state) {
     try {
         const serialisedState = JSON.stringify(state);
-        localStorage.setItem("persistantState", serialisedState);
+        localStorage.setItem("githubRepoViewer", serialisedState);
     } catch (e) {
         console.warn(e);
     }
@@ -18,7 +18,7 @@ function saveToLocalStorage(state) {
 // invalid output must be undefined
 function loadFromLocalStorage() {
     try {
-        const serialisedState = localStorage.getItem("persistantState");
+        const serialisedState = localStorage.getItem("githubRepoViewer");
         if (serialisedState === null) return undefined;
         return JSON.parse(serialisedState);
     } catch (e) {
