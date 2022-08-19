@@ -1,12 +1,9 @@
-import './SearchRepoBar.css'
-import Card from "@mui/material/Card";
 import Box from "@mui/material/Box";
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
-import {resetFilters, setInputValue, setNeedFilterFlag, showFiltersToggle} from "../../utils/reducers/filterSlice";
-import {Input, Button, TextField} from "@mui/material";
+import {setInputValue, setNeedFilterFlag, showFiltersToggle} from "../../utils/reducers/filterSlice";
+import {Button, TextField, IconButton} from "@mui/material";
 import FilterBar from "../FilterBar/FilterBar";
-
+import {SearchOutlined} from "@mui/icons-material";
 
 export const SearchRepoBar = () => {
     const user = useSelector(state => state.user)
@@ -33,26 +30,33 @@ export const SearchRepoBar = () => {
                     flexDirection: 'row'
                 }}
             >
+
+                <TextField
+                    fullWidth
+                    label='Repository name to search'
+                    onChange={(e) => {
+                        dispatch(setInputValue(e.target.value))
+                        dispatch(setNeedFilterFlag(true))
+                    }}
+                    InputProps={{
+                        endAdornment: (
+                            <IconButton>
+                                <SearchOutlined/>
+                            </IconButton>
+                        ),
+                    }}
+                />
+
                 <Button
-                    sx={filter.show ? {marginRight: 1, borderColor:'white'} : {marginRight: 1}}
+                    sx={filter.show ? {marginRight: 1, borderColor: 'white'} : {marginRight: 1}}
                     variant="outlined"
                     onClick={() => dispatch(showFiltersToggle())}
                 > Filters
                     {/*{filter.show ? 'Hide filters' : 'Show filters'}*/}
                 </Button>
-                <TextField
-                    fullWidth
-                    className={"search-bar-input"}
-                    // placeholder={"Repository name to search ... "}
-                    label='Repository name to search'
-                    onChange={(e) => {
-                        dispatch(setInputValue(e.target.value))
-                        dispatch(setNeedFilterFlag(true))
-                    }}/>
             </Box>
 
 
-            <FilterBar/>
         </Box>
     )
 }

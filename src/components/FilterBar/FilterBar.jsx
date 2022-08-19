@@ -59,7 +59,7 @@ export const FilterBar = () => {
                 // width: '100%',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'flex-start',
+                justifyContent: 'center',
                 alignItems: 'center',
                 // border: '2px solid white',
                 // borderRadius:1,
@@ -74,11 +74,9 @@ export const FilterBar = () => {
             <FormControl
                 margin='normal'
                 fullWidth
-                // sx={{marginBottom:2}}
             >
                 <FormLabel component="sort">Sort type</FormLabel>
                 <Select
-                    // labelId="sort-select-label"
                     id="sort-select"
                     value={filter.sorting.type}
                     onChange={(e) => handleChange({from: "sorting-type-select", e})}
