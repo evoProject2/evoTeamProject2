@@ -1,29 +1,40 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import RepoFolders from "./RepoFolders";
+import Box from "@mui/material/Box";
 
 const RepoFilesAndFolders = ({ repo }) => {
   const [filesAndFolders, setFilesAndFolder] = useState([]);
 
-  const fileApi = `https://api.github.com/repos/${repo.full_name}/contents`;
+  const repoContentApi = `https://api.github.com/repos/${repo.full_name}/contents`;
 
   const getRepoContent = async () => {
-    const data = await fetch(fileApi);
+    const data = await fetch(repoContentApi);
     const res = await data.json();
     if (!res.documentation_url) {
       // Fix the object problem when I have an empty repo
       setFilesAndFolder(res);
     }
   };
+
   useEffect(() => {
     getRepoContent();
   }, []);
 
   return (
     <div>
-      <ul style={{ listStyle: "none" }}>
-        {filesAndFolders.map((el) => (
-          <li key={el.name}>{el.name}</li>
-        ))}
-      </ul>
+      <Box sx={{ padding: "0" }}>
+        {filesAndFolders.map((folder) => {
+          return (
+            <Box sx={{ display: "flex", alignItems: "center", margin: 0 }}>
+              <RepoFolders
+                key={folder.name}
+                filesAndFolders={filesAndFolders}
+                folder={folder}
+              />
+            </Box>
+          );
+        })}
+      </Box>
     </div>
   );
 };

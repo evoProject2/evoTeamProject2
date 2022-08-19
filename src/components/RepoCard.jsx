@@ -12,7 +12,7 @@ export default function RepoCard({ repo }) {
   const colors = useSelector((state) => state.github.colors);
 
   const handleShowComponet = () => {
-    setShowComponet(!showComponent);
+    setShowComponet((showComponent) => !showComponent);
   };
 
   return (
@@ -34,7 +34,7 @@ export default function RepoCard({ repo }) {
       >
         {repo?.name}
       </Typography>
-      {showComponent && <RepoFilesAndFolders repo={repo} />}
+      <Box>{showComponent && <RepoFilesAndFolders repo={repo} />}</Box>
       <Box sx={{ display: "flex", flexDirection: "row" }}>
         {/* {Object.keys(repo.languages).map((lang, index) => (
           <Chip

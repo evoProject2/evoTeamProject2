@@ -10,7 +10,7 @@ const UserDetails = () => {
   const userAbout = user.userAbout;
 
   useEffect(() => {
-    console.log(userAbout);
+    // console.log(userAbout);
   }, []);
 
   return (
@@ -26,9 +26,9 @@ const UserDetails = () => {
           sx={{
             height: "300px",
             width: "300px",
+            outline: "3px solid #fff",
           }}
         />
-
         <Box
           sx={{
             // marginLeft: "2em",
