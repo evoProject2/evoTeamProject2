@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/evoTeamProject2/static/css/main.9cc7c82b.css",
-    "main.js": "/evoTeamProject2/static/js/main.b3c3249a.js",
+    "main.css": "/evoTeamProject2/static/css/main.1942d0fd.css",
+    "main.js": "/evoTeamProject2/static/js/main.ba920555.js",
     "index.html": "/evoTeamProject2/index.html",
-    "main.9cc7c82b.css.map": "/evoTeamProject2/static/css/main.9cc7c82b.css.map",
-    "main.b3c3249a.js.map": "/evoTeamProject2/static/js/main.b3c3249a.js.map"
+    "main.1942d0fd.css.map": "/evoTeamProject2/static/css/main.1942d0fd.css.map",
+    "main.ba920555.js.map": "/evoTeamProject2/static/js/main.ba920555.js.map"
   },
   "entrypoints": [
-    "static/css/main.9cc7c82b.css",
-    "static/js/main.b3c3249a.js"
+    "static/css/main.1942d0fd.css",
+    "static/js/main.ba920555.js"
   ]
 }
