@@ -48,7 +48,8 @@ const UserRepositories = () => {
 
             <Box
                 sx={{
-                    width:'800px'
+                    width:'800px',
+                    marginTop:'30px'
                 }}
             >
 

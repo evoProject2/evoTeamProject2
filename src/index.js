@@ -7,6 +7,7 @@ import { ThemeProvider } from "@emotion/react";
 import CssBaseline from "@mui/material/CssBaseline";
 import ReactDOM from "react-dom/client";
 import { theme } from "./utils/theme";
+import './index.css'
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

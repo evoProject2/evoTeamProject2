@@ -117,8 +117,8 @@ export default function RepoCard({ repo }) {
                             fontFamily: 'WireOne',
                             fontWeight: 1000,
                             letterSpacing: 2,
-                            fontSize: '1.2rem',
-                            // lineHeight:1.4
+                            fontSize: '1.3rem',
+                            lineHeight:1.4
 
                         }}
                     >
@@ -127,8 +127,9 @@ export default function RepoCard({ repo }) {
                     <Typography
                         sx={{
                             fontFamily: 'WireOne',
-                            fontSize: '1.2rem',
-                            lineHeight: 0.4
+                            fontSize: '1.15rem',
+                            lineHeight: 0.4,
+                            minWidth:'45px'
                         }}
                     >
                         code lines

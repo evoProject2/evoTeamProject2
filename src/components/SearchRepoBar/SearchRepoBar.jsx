@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {resetFilters, setInputValue, setNeedFilterFlag, showFiltersToggle} from "../../reducers/filterSlice";
-import {Input, Button} from "@mui/material";
+import {Input, Button, TextField} from "@mui/material";
 import FilterBar from "../FilterBar/FilterBar";
 
 
@@ -14,44 +14,50 @@ export const SearchRepoBar = () => {
     const value = useSelector(state => state.filter.inputValue)
     const dispatch = useDispatch()
 
-    return <Card
-        sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            m: "10px 0px",
-            p: 2.5,
-            minWidth: "700px",
-        }}
-    >
-
-        <Box
-
+    return (
+        <Card
             sx={{
-                width: '100%',
-                display: 'flex',
-                flexDirection: 'row'
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                // m: "10px 0px",
+                p:2,
+                // p: 2.5,
+                minWidth: "700px",
             }}
         >
-            <Button
-                // fullWidth
-                onClick={() => dispatch(showFiltersToggle())}
-            > Filters
-                {/*{filter.show ? 'Hide filters' : 'Show filters'}*/}
-            </Button>
-            <Input
-                fullWidth
-                className={"search-bar-input"} placeholder={"Repository name to search ... "}
-                onChange={(e) => {
-                    dispatch(setInputValue(e.target.value))
-                    dispatch(setNeedFilterFlag(true))
-                }}/>
-        </Box>
+
+            <Box
+
+                sx={{
+                    width: '100%',
+                    display: 'flex',
+                    flexDirection: 'row'
+                }}
+            >
+                <Button
+                    sx={{marginRight: 1}}
+                    variant="outlined"
+                    onClick={() => dispatch(showFiltersToggle())}
+                > Filters
+                    {/*{filter.show ? 'Hide filters' : 'Show filters'}*/}
+                </Button>
+                <TextField
+                    fullWidth
+                    className={"search-bar-input"}
+                    // placeholder={"Repository name to search ... "}
+                    label='Repository name to search'
+                    onChange={(e) => {
+                        dispatch(setInputValue(e.target.value))
+                        dispatch(setNeedFilterFlag(true))
+                    }}/>
+            </Box>
 
 
-        <FilterBar/>
-    </Card>
+            <FilterBar/>
+        </Card>
+    )
 }
 
 
