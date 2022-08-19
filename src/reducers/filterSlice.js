@@ -1,6 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import {FILTER} from "../components/FilterBar/filterConstants";
-// import {filterRepos} from "../components/FilterBar/filterFunctions";
 
 const initialState = {
   inputValue: "",
@@ -11,6 +9,7 @@ const initialState = {
     type: "disabled",
     direction: "ascending",
   },
+  languages: {},
 };
 
 export const filterSlice = createSlice({
@@ -32,6 +31,19 @@ export const filterSlice = createSlice({
     setNeedFilterFlag: (state, flag) => {
       state.needFilterFlag = flag.payload;
     },
+    setLanguages: (state, languages) => {
+      state.languages = languages.payload;
+    },
+    toggleSelectedLanguage: (state, languageName) => {
+      state.languages[languageName.payload].selected =
+        !state.languages[languageName.payload].selected;
+    },
+    resetFilters: (state) => {
+      state.sorting = initialState.sorting;
+      Object.keys(state.languages).forEach(
+        (lang) => (state.languages[lang].selected = false)
+      );
+    },
   },
 });
 
@@ -41,5 +53,8 @@ export const {
   setSortingDirection,
   showFiltersToggle,
   setNeedFilterFlag,
+  setLanguages,
+  toggleSelectedLanguage,
+  resetFilters,
 } = filterSlice.actions;
 export default filterSlice.reducer;

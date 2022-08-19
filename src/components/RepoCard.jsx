@@ -22,7 +22,8 @@ export default function RepoCard({ repo }) {
         flexDirection: "column",
         m: "10px 0px",
         p: 2,
-        minWidth: "500px",
+        maxWidth: "400px",
+        minHeight: "200px",
       }}
     >
       <Typography
@@ -35,22 +36,22 @@ export default function RepoCard({ repo }) {
       </Typography>
       <Box>{showComponent && <RepoFilesAndFolders repo={repo} />}</Box>
       <Box sx={{ display: "flex", flexDirection: "row" }}>
-        {Object.keys(repo.languages).map((lang, index) => (
+        {/* {Object.keys(repo.languages).map((lang, index) => (
           <Chip
             key={`${lang}-${index}`}
             label={lang}
             size="small"
             sx={{ margin: "0px 5px" }}
           />
-        ))}
+        ))} */}
       </Box>
 
       <Box
         sx={{
           display: "flex",
           flexDirection: "row",
-          alignItems: "flex-end",
-          justifyContent: "flex-end",
+          alignItems: "flex-start",
+          justifyContent: "flex-start",
         }}
       >
         {Object.keys(colors).length > 0 && (
