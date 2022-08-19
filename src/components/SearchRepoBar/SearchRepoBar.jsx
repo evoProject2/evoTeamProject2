@@ -15,15 +15,12 @@ export const SearchRepoBar = () => {
     const dispatch = useDispatch()
 
     return (
-        <Card
+        <Box
             sx={{
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                // m: "10px 0px",
-                p:2,
-                // p: 2.5,
                 minWidth: "700px",
             }}
         >
@@ -37,7 +34,7 @@ export const SearchRepoBar = () => {
                 }}
             >
                 <Button
-                    sx={{marginRight: 1}}
+                    sx={filter.show ? {marginRight: 1, borderColor:'white'} : {marginRight: 1}}
                     variant="outlined"
                     onClick={() => dispatch(showFiltersToggle())}
                 > Filters
@@ -56,7 +53,7 @@ export const SearchRepoBar = () => {
 
 
             <FilterBar/>
-        </Card>
+        </Box>
     )
 }
 

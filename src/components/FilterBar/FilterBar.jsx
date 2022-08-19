@@ -61,9 +61,10 @@ export const FilterBar = () => {
                 flexDirection: 'column',
                 justifyContent: 'flex-start',
                 alignItems: 'center',
-                // border: '1px solid #ffffff99',
-                // margin: 2,
-                // padding: 3
+                // border: '2px solid white',
+                borderRadius:1,
+                // margin: '20px 0',
+                // padding: 2
             }}>
 
             {/*<div className={"filter-bar-component-title"} onClick={() => dispatch(showFiltersToggle())}>*/}
@@ -73,6 +74,7 @@ export const FilterBar = () => {
             <FormControl
                 margin='normal'
                 fullWidth
+                // sx={{marginBottom:2}}
             >
                 <FormLabel component="sort">Sort type</FormLabel>
                 <Select
