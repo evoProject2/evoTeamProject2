@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Typography from "@mui/material/Typography";
+import { AiFillFolderOpen, AiFillFile } from "react-icons/ai";
 
 const RepoFiles = ({ folder }) => {
   const [repoFiles, setRepoFiles] = useState([{ ...folder }]);
@@ -16,9 +18,14 @@ const RepoFiles = ({ folder }) => {
   return (
     <div>
       {repoFiles.map((file, index) => (
-        <p key={index} style={{ backgroundColor: "red" }}>
-          {file.path}
-        </p>
+        <>
+          <Typography variant="p">
+            {folder.type === "dir" ? <AiFillFolderOpen /> : <AiFillFile />}
+          </Typography>
+          <p key={index} style={{ backgroundColor: "red", margin: ".75rem 0" }}>
+            {file.path}
+          </p>
+        </>
       ))}
     </div>
   );
