@@ -7,6 +7,7 @@ import {useSelector} from "react-redux";
 import RepoFilesAndFolders from "./RepoFilesAndFolders/RepoFilesAndFolders";
 import {useState} from "react";
 import '../fonts.css'
+import './RepoCard.css'
 
 export default function RepoCard({repo}) {
     const [showComponent, setShowComponet] = useState(false);
@@ -54,6 +55,7 @@ export default function RepoCard({repo}) {
 
     return (
         <Card
+            className={"repo-card"}
             sx={{
                 position: 'relative',
                 display: "flex",
