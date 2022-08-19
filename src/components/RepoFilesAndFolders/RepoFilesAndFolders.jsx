@@ -15,7 +15,6 @@ const RepoFilesAndFolders = ({ repo }) => {
       setFilesAndFolder(res);
     }
   };
-
   useEffect(() => {
     getRepoContent();
   }, []);
@@ -25,13 +24,11 @@ const RepoFilesAndFolders = ({ repo }) => {
       <Box sx={{ padding: "0" }}>
         {filesAndFolders.map((folder) => {
           return (
-            <Box sx={{ display: "flex", alignItems: "center", margin: 0 }}>
-              <RepoFolders
-                key={folder.name}
-                filesAndFolders={filesAndFolders}
-                folder={folder}
-              />
-            </Box>
+            <RepoFolders
+              key={folder.name}
+              filesAndFolders={filesAndFolders}
+              folder={folder}
+            />
           );
         })}
       </Box>

@@ -22,7 +22,7 @@ export default function RepoCard({ repo }) {
         flexDirection: "column",
         m: "10px 0px",
         p: 2,
-        maxWidth: "400px",
+        maxWidth: "500px",
         minHeight: "200px",
       }}
     >
