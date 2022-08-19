@@ -36,10 +36,10 @@ const UserRepositories = () => {
                 <UserDetails/>
                 <SearchRepoBar/>
 
-                <Box style={{display:'flex', flexDirection:'row', flexWrap:"wrap", justifyContent:'center'}}>
+                <Box style={{display:'flex', flexDirection:'row', flexWrap:"wrap", justifyContent:'center', margin:'20px'}}>
                     {user.filteredRepositories &&
                     user.filteredRepositories.map((repo) => (
-                        <Box sx={{margin:'20px'}}>
+                        <Box >
                             <RepoCard repo={repo}/>
                         </Box>
                     ))}
