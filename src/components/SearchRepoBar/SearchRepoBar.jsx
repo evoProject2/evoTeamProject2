@@ -21,7 +21,7 @@ export const SearchRepoBar = () => {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                minWidth: "700px",
+                width: "700px",
             }}
         >
 
