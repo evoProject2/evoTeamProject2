@@ -27,6 +27,7 @@ import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
+import Typography from "@mui/material/Typography";
 
 export const FilterBar = () => {
     const filter = useSelector((state) => state.filter);
@@ -53,31 +54,31 @@ export const FilterBar = () => {
 
     return (
         filter.show &&
-
-        <Card
+        <Box
             sx={{
                 width: '100%',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'flex-start',
                 alignItems: 'center',
-                border: '1px solid #ffffff99',
-                margin: 2,
-                padding: 3
+                // border: '1px solid #ffffff99',
+                // margin: 2,
+                // padding: 3
             }}>
 
             {/*<div className={"filter-bar-component-title"} onClick={() => dispatch(showFiltersToggle())}>*/}
             {/*    Filters*/}
             {/*</div>*/}
 
-            <FormControl fullWidth>
-                <InputLabel id="sort-select-label">Sort type</InputLabel>
+            <FormControl
+                margin='normal'
+                fullWidth
+            >
+                <FormLabel component="sort">Sort type</FormLabel>
                 <Select
-                    labelId="sort-select-label"
+                    // labelId="sort-select-label"
                     id="sort-select"
-                    // defaultValue={FILTER.sortBy.none}
                     value={filter.sorting.type}
-                    // label="Sort"
                     onChange={(e) => handleChange({from: "sorting-type-select", e})}
                 >
                     {Object.keys(FILTER.sortBy).map((type) => (
@@ -111,7 +112,9 @@ export const FilterBar = () => {
                 </FormControl>
             ) : null}
 
-            <Box>
+            <FormControl  variant="outlined" fullWidth >
+                <FormLabel component="languages">Languages</FormLabel>
+                <FormGroup row >
                 {
                     Object.keys(filter.languages).map(lang =>
                         <Button
@@ -129,12 +132,13 @@ export const FilterBar = () => {
                             {lang}
                         </Button>
                     )}
-            </Box>
+                </FormGroup>
+            </FormControl>
 
             <Button fullWidth onClick={() => dispatch(resetFilters())}>
                 Reset filters
             </Button>
-        </Card>
+        </Box>
 
     );
 };
