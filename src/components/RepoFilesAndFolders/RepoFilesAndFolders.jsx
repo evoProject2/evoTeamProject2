@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import RepoFolders from "./RepoFolders";
+import Box from "@mui/material/Box";
 
 const RepoFilesAndFolders = ({ repo }) => {
   const [filesAndFolders, setFilesAndFolder] = useState([]);
@@ -14,15 +15,24 @@ const RepoFilesAndFolders = ({ repo }) => {
       setFilesAndFolder(res);
     }
   };
+
   useEffect(() => {
     getRepoContent();
   }, []);
 
   return (
     <div>
-      <div style={{ padding: "0" }}>
-        <RepoFolders filesAndFolders={filesAndFolders} />
-      </div>
+      <Box sx={{ padding: "0" }}>
+        {filesAndFolders.map((folder) => {
+          return (
+            <RepoFolders
+              key={folder.name}
+              filesAndFolders={filesAndFolders}
+              folder={folder}
+            />
+          );
+        })}
+      </Box>
     </div>
   );
 };

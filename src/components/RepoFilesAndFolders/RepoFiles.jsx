@@ -1,25 +1,24 @@
 import React, { useEffect, useState } from "react";
 
-const RepoFiles = ({ filesAndFolders }) => {
-  const [repoFiles, setRepoFiles] = useState(filesAndFolders);
+const RepoFiles = ({ folder }) => {
+  const [repoFiles, setRepoFiles] = useState([{ ...folder }]);
 
-  const handleRepoFiles = async (el) => {
-    // console.log("Click on folder", el);
-    const dataSubFiles = await fetch(el.git_url);
+  const handleRepoFiles = async (files) => {
+    const dataSubFiles = await fetch(files.git_url);
     const resSubFiles = await dataSubFiles.json();
-
-    console.log(resSubFiles.tree, "here");
     setRepoFiles(resSubFiles.tree);
   };
 
   useEffect(() => {
-    handleRepoFiles();
+    handleRepoFiles(folder);
   }, []);
 
   return (
     <div>
-      {repoFiles.map((file) => (
-        <p>{file.path}</p>
+      {repoFiles.map((file, index) => (
+        <p key={index} style={{ backgroundColor: "red" }}>
+          {file.path}
+        </p>
       ))}
     </div>
   );
