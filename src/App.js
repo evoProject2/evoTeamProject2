@@ -8,7 +8,7 @@ function App() {
     width: "100%",
     display: "flex",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "flex-start",
     backgroundColor: "#0d1117",
     color: "#FFFFFF",
     overflow: "auto",

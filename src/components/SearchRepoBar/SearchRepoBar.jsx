@@ -21,24 +21,36 @@ export const SearchRepoBar = () => {
             justifyContent: "center",
             alignItems: "center",
             m: "10px 0px",
-            p: 5,
-            minWidth: "500px",
+            p: 2.5,
+            minWidth: "700px",
         }}
     >
 
-        <Button
-            fullWidth
-            onClick={() => dispatch(showFiltersToggle())}
-        >{filter.show ? 'Hide filters' : 'Show filters'}
-        </Button>
+        <Box
+
+            sx={{
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'row'
+            }}
+        >
+            <Button
+                // fullWidth
+                onClick={() => dispatch(showFiltersToggle())}
+            > Filters
+                {/*{filter.show ? 'Hide filters' : 'Show filters'}*/}
+            </Button>
+            <Input
+                fullWidth
+                className={"search-bar-input"} placeholder={"Repository name to search ... "}
+                onChange={(e) => {
+                    dispatch(setInputValue(e.target.value))
+                    dispatch(setNeedFilterFlag(true))
+                }}/>
+        </Box>
+
 
         <FilterBar/>
-
-        <Button fullWidth
-                onClick={() => dispatch(resetFilters())}
-        > Reset filters
-        </Button>
-
     </Card>
 }
 

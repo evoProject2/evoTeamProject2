@@ -7,5 +7,6 @@ export const FILTER = {
         disabled: 'disabled',
         name: 'name',
         lastUpdate: 'last update',
+        codeLines: 'code lines'
     }
 }

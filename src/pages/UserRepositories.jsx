@@ -40,26 +40,21 @@ const UserRepositories = () => {
                     marginRight: "15em",
                     marginTop: "2em",
                     marginLeft: "5em",
-                alignSelf: "self-start",}}
+                    alignSelf: "self-start",
+                }}
             >
                 <UserDetails/>
             </Box>
 
             <Box
                 sx={{
-                    height: "100%",
-                    // display: "flex",
-                    // flexDirection: "column",
-                    // marginRight: "15em",
-                    // marginTop: "2em",
-                    // marginLeft: "5em",
+                    width:'800px'
                 }}
             >
 
                 <SearchRepoBar/>
 
-
-                <Grid sx={{height: "100%"}}container spacing={2}>
+                <Grid sx={{height: "100%"}} container spacing={2}>
                     {user.filteredRepositories &&
                     user.filteredRepositories.map((repo) => (
                         <Grid item key={repo.name} xs={6}>
@@ -67,6 +62,7 @@ const UserRepositories = () => {
                         </Grid>
                     ))}
                 </Grid>
+
             </Box>
             <FilterLogic/>
         </>
