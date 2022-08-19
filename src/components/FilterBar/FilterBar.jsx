@@ -18,7 +18,7 @@ import {
     setNeedFilterFlag,
     setSortingDirection,
     setSortingType, showFiltersToggle, toggleSelectedLanguage,
-} from "../../reducers/filterSlice";
+} from "../../utils/reducers/filterSlice";
 import {capitalize, getReposLanguages} from "../../utils/functions";
 
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';

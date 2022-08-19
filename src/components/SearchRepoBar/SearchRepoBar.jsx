@@ -3,7 +3,7 @@ import Card from "@mui/material/Card";
 import Box from "@mui/material/Box";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {resetFilters, setInputValue, setNeedFilterFlag, showFiltersToggle} from "../../reducers/filterSlice";
+import {resetFilters, setInputValue, setNeedFilterFlag, showFiltersToggle} from "../../utils/reducers/filterSlice";
 import {Input, Button, TextField} from "@mui/material";
 import FilterBar from "../FilterBar/FilterBar";
 

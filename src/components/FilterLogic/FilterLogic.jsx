@@ -1,8 +1,8 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {compareFunction, filterRepositoriesFunction} from "../FilterBar/filterFunctions";
-import {setFilteredRepositories} from "../../reducers/userSlice";
-import {setLanguages, setNeedFilterFlag} from "../../reducers/filterSlice";
+import {setFilteredRepositories} from "../../utils/reducers/userSlice";
+import {setLanguages, setNeedFilterFlag} from "../../utils/reducers/filterSlice";
 import {FILTER} from "../FilterBar/filterConstants";
 import {filterByLanguages, filterByRepositoryName, sortBy} from "./filterLogicFunctions";
 import {getReposLanguages} from "../../utils/functions";
