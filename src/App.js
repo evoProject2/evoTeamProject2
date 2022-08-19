@@ -19,8 +19,8 @@ function App() {
     <Paper sx={appStyle} className={"app"}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<IntroPage />} />
-          <Route path="/:username" element={<UserRepositories />} />
+          <Route path="/evoTeamProject2/" element={<IntroPage />} />
+          <Route path="/evoTeamProject2/:username" element={<UserRepositories />} />
         </Routes>
       </BrowserRouter>
     </Paper>

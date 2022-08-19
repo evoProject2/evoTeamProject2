@@ -45,7 +45,7 @@ export const IntroPage = () => {
             dispatch(setNeedFilterFlag(true));
             dispatch(setUserAbout(userAbout));
 
-            navigate(`/${user.username}`);
+            navigate(`/evoTeamProject2/${user.username}`);
             // navigate(`/${inputValue}`, { replace: true })    // if u want to restrict back history
         } else {
             alert(`'${user.username}' is not a valid username.`);
