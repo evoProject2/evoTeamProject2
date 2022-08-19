@@ -13,6 +13,7 @@ import {
     Select,
 } from "@mui/material";
 import {
+    resetFilters,
     setInputValue,
     setNeedFilterFlag,
     setSortingDirection,
@@ -64,20 +65,10 @@ export const FilterBar = () => {
                 margin: 2,
                 padding: 3
             }}>
-            <div className={"filter-bar-component-title"} onClick={() => dispatch(showFiltersToggle())}>Filters
-            </div>
 
-            <Input
-                fullWidth
-                sx={{
-                    // width: '100%',
-                    marginBottom: '25px'
-                }}
-                className={"search-bar-input"} placeholder={"Repository name to search ... "}
-                onChange={(e) => {
-                    dispatch(setInputValue(e.target.value))
-                    dispatch(setNeedFilterFlag(true))
-                }}/>
+            {/*<div className={"filter-bar-component-title"} onClick={() => dispatch(showFiltersToggle())}>*/}
+            {/*    Filters*/}
+            {/*</div>*/}
 
             <FormControl fullWidth>
                 <InputLabel id="sort-select-label">Sort type</InputLabel>
@@ -139,6 +130,10 @@ export const FilterBar = () => {
                         </Button>
                     )}
             </Box>
+
+            <Button fullWidth onClick={() => dispatch(resetFilters())}>
+                Reset filters
+            </Button>
         </Card>
 
     );
