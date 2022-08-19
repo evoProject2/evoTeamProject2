@@ -1,15 +1,18 @@
 import Box from "@mui/material/Box";
 import {useDispatch, useSelector} from "react-redux";
 import {setInputValue, setNeedFilterFlag, showFiltersToggle} from "../../utils/reducers/filterSlice";
-import {Button, TextField, IconButton} from "@mui/material";
+import {Button, TextField, IconButton, FormLabel, InputAdornment} from "@mui/material";
 import FilterBar from "../FilterBar/FilterBar";
 import {SearchOutlined} from "@mui/icons-material";
+import ClearIcon from '@mui/icons-material/Clear';
+import SearchIcon from '@mui/icons-material/Search';
 
 export const SearchRepoBar = () => {
     const user = useSelector(state => state.user)
     const filter = useSelector(state => state.filter)
     const value = useSelector(state => state.filter.inputValue)
     const dispatch = useDispatch()
+
 
     return (
         <Box
@@ -33,17 +36,18 @@ export const SearchRepoBar = () => {
 
                 <TextField
                     fullWidth
-                    label='Repository name to search'
-                    onChange={(e) => {
-                        dispatch(setInputValue(e.target.value))
-                        dispatch(setNeedFilterFlag(true))
-                    }}
+                    label={'Search repository'}
+                    value={filter.inputValue}
+                    onChange={(e) => dispatch(setInputValue(e.target.value))}
                     InputProps={{
                         endAdornment: (
-                            <IconButton>
-                                <SearchOutlined/>
+                            <IconButton sx={{visibility: filter.inputValue.length > 0 ? "visible" : "hidden"}}
+                                        onClick={() => dispatch(setInputValue(''))}
+                            >
+                                <ClearIcon/>
                             </IconButton>
                         ),
+                        startAdornment: <InputAdornment position="start"><SearchIcon/></InputAdornment>,
                     }}
                 />
 

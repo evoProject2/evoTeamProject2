@@ -18,6 +18,7 @@ export const filterSlice = createSlice({
     reducers: {
         setInputValue: (state, newValue) => {
             state.inputValue = newValue.payload;
+            state.needFilterFlag = true
         },
         showFiltersToggle: (state) => {
             state.show = !state.show;
