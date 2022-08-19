@@ -5,14 +5,14 @@ import {
     setFilteredRepositories,
     setUserAbout,
     setUsername,
-} from "../../reducers/userSlice";
+} from "../../utils/reducers/userSlice";
 import {
     fetchUserAbout,
     getRepositoriesByUsername, getReposLanguages,
     isAnUsername,
 } from "../../utils/functions";
 
-import {setRepositories} from "../../reducers/userSlice";
+import {setRepositories} from "../../utils/reducers/userSlice";
 import {Box, Button, Typography} from "@mui/material";
 import Input from "@mui/material/Input";
 import {
@@ -23,7 +23,7 @@ import {
     inputAndBtnContainerStyle,
 } from "./IntroPageStyle";
 import classes from "./IntroPage.module.css";
-import {setLanguages, setNeedFilterFlag} from "../../reducers/filterSlice";
+import {setLanguages, setNeedFilterFlag} from "../../utils/reducers/filterSlice";
 import {useEffect} from "react";
 
 export const IntroPage = () => {

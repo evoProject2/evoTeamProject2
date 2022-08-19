@@ -1,7 +1,7 @@
 import {Dialog, DialogContent, Paper} from "@mui/material";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import IntroPage from "./pages/Home/IntroPage";
-import UserRepositories from "./pages/UserRepositories";
+import UserRepositories from "./pages/UserRepositories/UserRepositories";
 import {useNavigate} from "react-router";
 
 function App() {

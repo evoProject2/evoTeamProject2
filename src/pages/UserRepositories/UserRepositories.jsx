@@ -1,13 +1,13 @@
 import {useDispatch, useSelector} from "react-redux";
-import RepoCard from "../components/RepoCard";
+import RepoCard from "../../components/RepoCard/RepoCard";
 import {useEffect} from "react";
-import {getGithubLanguageColors} from "../utils/functions";
-import {setGithubColors} from "../reducers/githubSlice";
-import FilterLogic from "../components/FilterLogic/FilterLogic";
+import {getGithubLanguageColors} from "../../utils/functions";
+import {setGithubColors} from "../../utils/reducers/githubSlice";
+import FilterLogic from "../../components/FilterLogic/FilterLogic";
 import Box from "@mui/material/Box";
-import UserDetails from "../components/UserDetails";
-import SearchRepoBar from "../components/SearchRepoBar/SearchRepoBar";
-import FilterBar from "../components/FilterBar/FilterBar";
+import UserDetails from "../../components/RepoCard/UserDetails";
+import SearchRepoBar from "../../components/SearchRepoBar/SearchRepoBar";
+import FilterBar from "../../components/FilterBar/FilterBar";
 import {useNavigate} from "react-router";
 import Grid from "@mui/material/Grid";
 

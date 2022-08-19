@@ -6,7 +6,7 @@ import {
   setInputValue,
   setNeedFilterFlag,
   showFiltersToggle,
-} from "../../reducers/filterSlice";
+} from "../../utils/reducers/filterSlice";
 import { Button } from "@mui/material";
 
 export const SearchRepoBar = () => {
