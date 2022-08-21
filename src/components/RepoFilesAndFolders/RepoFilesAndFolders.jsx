@@ -15,13 +15,14 @@ const RepoFilesAndFolders = ({ repo }) => {
       setFilesAndFolder(res);
     }
   };
+
   useEffect(() => {
     getRepoContent();
   }, []);
 
   return (
     <div>
-      <Box sx={{ padding: "0" }}>
+      <Box sx={{ padding: "0px" }}>
         {filesAndFolders.map((folder) => {
           return (
             <RepoFolders

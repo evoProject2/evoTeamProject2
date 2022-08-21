@@ -1,6 +1,6 @@
 export const fileContainerStyle = {
   width: "100%",
-  paddingLeft: "2.6rem",
+  paddingLeft: "1rem",
   margin: ".3rem 0",
   borderRadius: ".1rem",
   cursor: "pointer",

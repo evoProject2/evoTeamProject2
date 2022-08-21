@@ -16,14 +16,20 @@ export const introTitleStyle = {
 export const inputAndBtnContainerStyle = {
   display: "flex",
   alignItems: "center",
+  overflow: "hidden",
 };
 
 export const inputStyle = {
-  visibility: "hidden",
-  width: "0px",
+  visibility: "visible",
+  width: "200px",
   color: "#fff",
   padding: "4px 10px",
   borderRadius: "2px",
+  transition: "width 300ms ease-in-out, visibility 300ms ease-in-out",
+};
+export const inputStyleHover = {
+  visibility: "visible",
+  width: "200px",
   transition: "width 300ms ease-in-out, visibility 300ms ease-in-out",
 };
 

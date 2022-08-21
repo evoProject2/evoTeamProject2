@@ -6,7 +6,7 @@ export const folderContainerStyle = {
 export const folderStyle = {
   display: "flex",
   alignItems: "center",
-  padding: ".5rem 0rem .3rem 1.125rem",
+  padding: ".5rem 0rem .3rem .3rem",
   borderRadius: ".1rem",
   transition: "background 200ms ease-in-out, color 300ms ease-in-out",
   "&:hover": {
@@ -17,6 +17,6 @@ export const folderStyle = {
 };
 
 export const folderNameStyle = {
-  fontSize: "1.125rem",
-  paddingLeft: ".75rem",
+  fontSize: "1.1rem",
+  paddingLeft: ".5rem",
 };
