@@ -5,8 +5,8 @@ import LanguagesBar from "./LanguagesBar/LanguagesBar";
 import { useSelector } from "react-redux";
 import RepoFilesAndFolders from "./RepoFilesAndFolders/RepoFilesAndFolders";
 import { useState } from "react";
-import "../fonts.css";
-import "./RepoCard.css";
+import "../utils/fonts.css";
+import "./RepoCard/RepoCard.css";
 
 export default function RepoCard({ repo }) {
   const [showComponent, setShowComponet] = useState(false);
