@@ -15,9 +15,9 @@ export const SearchRepoBar = () => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        justifyContent: "flex-start",
+        justifyContent: "center",
         alignItems: "center",
-        width: "700px",
+        width: "510px",
       }}
     >
       <Box

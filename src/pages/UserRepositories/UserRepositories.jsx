@@ -35,20 +35,50 @@ const UserRepositories = () => {
           width: "100%",
         }}
       >
-        <UserDetails />
-        <SearchRepoBar />
+        <Box>
+          <UserDetails />
+        </Box>
+
         <Box
-          style={{
-            width: "90%",
+          sx={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            "@media(max-width: 960px)": {
+              width: "65%",
+            },
+          }}
+        >
+          <SearchRepoBar />
+        </Box>
+
+        <Box
+          sx={{
             display: "flex",
             flexWrap: "wrap",
             margin: "20px",
             justifyContent: "flex-start",
+            width: "90%",
+            "@media(min-width: 500px)": {
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            },
           }}
         >
           {user.filteredRepositories &&
             user.filteredRepositories.map((repo) => (
-              <Box>
+              <Box
+                sx={{
+                  "@media(max-width: 500px)": {
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    width: "100%",
+                  },
+                }}
+              >
                 <RepoCard repo={repo} />
               </Box>
             ))}

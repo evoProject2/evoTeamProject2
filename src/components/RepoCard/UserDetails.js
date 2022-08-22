@@ -19,6 +19,14 @@ const UserDetails = () => {
           width: "100%",
           height: "400px",
           padding: "0 50px 0 50px",
+
+          "@media(max-width: 560px)": {
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            margin: "4.5em 0",
+          },
         }}
       >
         <Avatar
@@ -28,6 +36,10 @@ const UserDetails = () => {
             width: "300px",
             height: "300px",
             outline: "3px solid #fff",
+            "@media(max-width: 950px)": {
+              width: "250px",
+              height: "250px",
+            },
           }}
         />
 
@@ -37,10 +49,34 @@ const UserDetails = () => {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
+            "@media(max-width: 900px)": {
+              minWidth: "250px",
+              marginLeft: "15px",
+            },
+            "@media(max-width: 560px)": {
+              marginTop: "2em",
+            },
           }}
         >
-          <Typography variant="h4">{userAbout.name}</Typography>
-          <Typography variant="h6" sx={{ color: "#ffffff77" }}>
+          <Typography
+            variant="h4"
+            sx={{
+              "@media(max-width: 950px)": {
+                fontSize: "25px",
+              },
+            }}
+          >
+            {userAbout.name}
+          </Typography>
+          <Typography
+            variant="h6"
+            sx={{
+              color: "#ffffff77",
+              "@media(max-width: 950px)": {
+                fontSize: "20px",
+              },
+            }}
+          >
             {"@" + userAbout.login}
           </Typography>
           <Typography
@@ -50,6 +86,9 @@ const UserDetails = () => {
               display: "flex",
               justifyContent: "flex-start",
               alignItems: "center",
+              "@media(max-width: 950px)": {
+                fontSize: "18px",
+              },
             }}
           >
             {userAbout.bio}
