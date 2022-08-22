@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import RepoFolders from "./RepoFolders";
 import Box from "@mui/material/Box";
+import { useSelector } from "react-redux";
 
 const RepoFilesAndFolders = ({ repo }) => {
   const [filesAndFolders, setFilesAndFolder] = useState([]);
+
+  const sortBy = useSelector((state) => state.filterRepoContent.sortBy);
+  console.log(sortBy);
 
   const repoContentApi = `https://api.github.com/repos/${repo.full_name}/contents`;
 
@@ -24,13 +28,7 @@ const RepoFilesAndFolders = ({ repo }) => {
     <div>
       <Box sx={{ padding: "0px" }}>
         {filesAndFolders.map((folder) => {
-          return (
-            <RepoFolders
-              key={folder.name}
-              filesAndFolders={filesAndFolders}
-              folder={folder}
-            />
-          );
+          return <RepoFolders key={folder.name} folder={folder} />;
         })}
       </Box>
     </div>

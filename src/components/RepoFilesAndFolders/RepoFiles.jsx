@@ -25,9 +25,9 @@ const RepoFiles = ({ folder }) => {
 
   return (
     <div>
-      {repoFiles.map((file, index) => (
-        <>
-          <Box sx={fileContainerStyle} key={index}>
+      {repoFiles.map((file) => (
+        <div key={file.path}>
+          <Box component="div" sx={fileContainerStyle}>
             <Box sx={fileNameContainerStyle}>
               <Typography variant="p">
                 {file.type === "tree" ? <AiFillFolderOpen /> : <AiFillFile />}
@@ -35,7 +35,7 @@ const RepoFiles = ({ folder }) => {
               <Typography sx={fileNameStyle}>{file.path}</Typography>
             </Box>
           </Box>
-        </>
+        </div>
       ))}
     </div>
   );

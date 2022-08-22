@@ -8,9 +8,10 @@ export const introPageContainerStyle = {
 };
 
 export const introTitleStyle = {
-  fontSize: "30px",
+  fontSize: "35px",
   marginBottom: "10px",
   color: "secondary.main",
+  textShadow: "0px 1px 2px #fff",
 };
 
 export const inputAndBtnContainerStyle = {
@@ -19,21 +20,8 @@ export const inputAndBtnContainerStyle = {
   overflow: "hidden",
 };
 
-export const inputStyle = {
-  visibility: "visible",
-  width: "200px",
-  color: "#fff",
-  padding: "4px 10px",
-  borderRadius: "2px",
-  transition: "width 300ms ease-in-out, visibility 300ms ease-in-out",
-};
-export const inputStyleHover = {
-  visibility: "visible",
-  width: "200px",
-  transition: "width 300ms ease-in-out, visibility 300ms ease-in-out",
-};
-
 export const introBtnStyle = {
   backgroundColor: "secondary.main",
   fontSize: "16px",
+  visibility: "visible",
 };

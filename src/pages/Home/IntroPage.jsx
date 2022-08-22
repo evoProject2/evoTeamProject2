@@ -24,10 +24,8 @@ import {
   inputAndBtnContainerStyle,
   inputStyleHover,
 } from "./IntroPageStyle";
-import classes from "./IntroPage.module.css";
 import { setLanguages, setNeedFilterFlag } from "../../reducers/filterSlice";
 import { useEffect, useState } from "react";
-import { IntroPageAni } from "../../components/IntroPage/IntroPageAni";
 
 export const IntroPage = () => {
   let navigate = useNavigate();
@@ -55,7 +53,20 @@ export const IntroPage = () => {
       alert(`'${user.username}' is not a valid username.`);
     }
   };
-  // <IntroPageAni />;
+
+  // Input inputStyle
+  let timing = 350;
+  const inputStyle = {
+    color: "#fff",
+    padding: "4px 10px",
+    borderRadius: "2px",
+    width: showInput ? "200px" : "0px",
+    visibility: showInput ? "visible" : "hidden",
+    transition: `width ${timing}ms ease-in-out`,
+  };
+  const trigger = () => {
+    setShowInput(true);
+  };
 
   return (
     <Box>
@@ -63,25 +74,17 @@ export const IntroPage = () => {
         <Typography variant="h1" component="h1" sx={introTitleStyle}>
           Find your Repository
         </Typography>
-        <Box
-          className={`${classes["input_and-btn-container"]}`}
-          sx={inputAndBtnContainerStyle}
-          onMouseOver={() => setShowInput(true)}
-          onMouseLeave={() => setShowInput(false)}
-        >
-          {showInput && (
-            <Input
-              onChange={(e) => dispatch(setUsername(e.target.value))}
-              onKeyDown={(event) => {
-                if (event.key === "Enter") handleFindButtonClicked();
-              }}
-              placeholder={"Username"}
-              sx={inputStyle}
-              type="text"
-              color="secondary"
-              className={`${classes["find_input"]}`}
-            />
-          )}
+        <Box onMouseEnter={trigger} sx={inputAndBtnContainerStyle}>
+          <Input
+            onChange={(e) => dispatch(setUsername(e.target.value))}
+            onKeyDown={(event) => {
+              if (event.key === "Enter") handleFindButtonClicked();
+            }}
+            placeholder={"Username"}
+            sx={inputStyle}
+            type="text"
+            color="secondary"
+          />
           <Button sx={introBtnStyle} onClick={() => handleFindButtonClicked()}>
             Find
           </Button>
