@@ -5,9 +5,7 @@ export const fileContainerStyle = {
   borderRadius: ".1rem",
   cursor: "pointer",
   "&:hover": {
-    backgroundColor: "#fff",
     transition: "background 200ms ease-in-out, color 300ms ease-in-out",
-    color: "#131313",
   },
 };
 

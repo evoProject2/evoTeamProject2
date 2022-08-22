@@ -8,9 +8,11 @@ import { useState } from "react";
 import "../../utils/fonts.css";
 import "./RepoCard.css";
 import CodeLines from "./CodeLines/CodeLines";
+import { useTheme } from "@mui/material";
 
 export default function RepoCard({ repo }) {
   const [showComponent, setShowComponent] = useState(false);
+  const theme = useTheme();
   const colors = useSelector((state) => state.github.colors);
 
   const handleShowComponent = () => {
@@ -29,6 +31,7 @@ export default function RepoCard({ repo }) {
         p: 2,
         width: "400px",
         minHeight: "200px",
+        backgroundColor: theme.palette.mode === "light" ? "#fafbfc" : "#161c22",
       }}
     >
       <Box
@@ -50,22 +53,10 @@ export default function RepoCard({ repo }) {
       </Box>
 
       <Box>{showComponent && <RepoFilesAndFolders repo={repo} />}</Box>
-      <Box sx={{ display: "flex", flexDirection: "row" }}>
-        {/* {Object.keys(repo.languages).map((lang, index) => (
-
-          <Chip
-            key={`${lang}-${index}`}
-            label={lang}
-            size="small"
-            sx={{ margin: "0px 5px" }}
-          />
-        ))} */}
-      </Box>
 
       <Box
         sx={{
           display: "flex",
-          flexDirection: "row",
           alignItems: "flex-start",
           justifyContent: "flex-start",
         }}

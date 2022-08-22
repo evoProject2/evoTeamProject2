@@ -35,7 +35,7 @@ const UserRepositories = () => {
           width: "100%",
         }}
       >
-        <Box>
+        <Box sx={{ width: "100%" }}>
           <UserDetails />
         </Box>
 
@@ -46,7 +46,7 @@ const UserRepositories = () => {
             justifyContent: "center",
             alignItems: "center",
             "@media(max-width: 960px)": {
-              width: "65%",
+              width: "75%",
             },
           }}
         >
@@ -68,7 +68,7 @@ const UserRepositories = () => {
           }}
         >
           {user.filteredRepositories &&
-            user.filteredRepositories.map((repo) => (
+            user.filteredRepositories.map((repo, index) => (
               <Box
                 sx={{
                   "@media(max-width: 500px)": {
@@ -78,8 +78,9 @@ const UserRepositories = () => {
                     width: "100%",
                   },
                 }}
+                key={`${repo.name}-${index}`}
               >
-                <RepoCard repo={repo} />
+                <RepoCard repo={repo} sx={{}} />
               </Box>
             ))}
         </Box>

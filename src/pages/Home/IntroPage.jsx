@@ -27,7 +27,7 @@ import {
 import { useEffect, useState } from "react";
 
 export const IntroPage = () => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const [showInput, setShowInput] = useState(false);
