@@ -24,14 +24,23 @@
 }
 
 @font-face {
-    font-family: 'PressStart';
-    src: url('https://fonts.gstatic.com/s/stalinistone/v47/MQpS-WezM9W4Dd7D3B7I-UT7SZyePhac.woff2') ;
+    font-family: 'Press Start 2P';
+    src: url('https://fonts.gstatic.com/s/pressstart2p/v14/e3t4euO8T-267oIAQAu6jDQyK3nYivN04w.woff2') ;
 }
 
-/*@font-face {*/
-/*    font-family: '';*/
-/*    src: url('') ;*/
-/*}*/
+@font-face {
+    font-family: 'Press Start 2P rev=1';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url(https://fonts.gstatic.com/s/pressstart2p/v14/e3t4euO8T-267oIAQAu6jDQyK3nYivN04w.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+@font-face {
+    font-family: 'Smokum';
+    src: url('https://fonts.gstatic.com/s/smokum/v24/TK3iWkUbAhopmrd2GT8G.woff2') ;
+}
 
 /*@font-face {*/
 /*    font-family: '';*/
