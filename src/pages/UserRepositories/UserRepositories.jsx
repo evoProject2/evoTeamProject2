@@ -33,7 +33,6 @@ const UserRepositories = () => {
           flexDirection: "column",
           alignItems: "center",
           width: "100%",
-          background: "blue",
         }}
       >
         <UserDetails />
