@@ -100,13 +100,9 @@ export const FilterBar = () => {
                 sx={
                   filter.languages[lang].selected
                     ? {
-                        borderColor: "white",
-                        backgroundColor: "#ffffff11",
                         margin: "2px",
                       }
                     : {
-                        color: "#ffffffBB",
-                        borderColor: "#ffffff11",
                         margin: "2px",
                       }
                 }

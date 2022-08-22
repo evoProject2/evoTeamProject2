@@ -10,9 +10,7 @@ export const folderStyle = {
   borderRadius: ".1rem",
   transition: "background 200ms ease-in-out, color 300ms ease-in-out",
   "&:hover": {
-    backgroundColor: "#fff",
     transition: "background 200ms ease-in-out, color 300ms ease-in-out",
-    color: "#131313",
   },
 };
 
