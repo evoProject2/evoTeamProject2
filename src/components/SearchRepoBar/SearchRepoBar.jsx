@@ -41,7 +41,6 @@ export const SearchRepoBar = () => {
           // fullWidth
           onClick={() => dispatch(showFiltersToggle())}
         >
-          {" "}
           Filters
           {/*{filter.show ? 'Hide filters' : 'Show filters'}*/}
         </Button>

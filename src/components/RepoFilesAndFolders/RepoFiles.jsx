@@ -15,7 +15,10 @@ const RepoFiles = ({ folder }) => {
     if (files.type === "dir") {
       const dataSubFiles = await fetch(files.git_url);
       const resSubFiles = await dataSubFiles.json();
-      setRepoFiles(resSubFiles.tree);
+      const sortFilesContent = [...resSubFiles.tree].sort((a, b) => {
+        return a.type < b.type ? 1 : -1;
+      });
+      setRepoFiles(sortFilesContent);
     }
   };
 

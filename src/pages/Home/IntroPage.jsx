@@ -22,8 +22,8 @@ import {
   inputStyle,
   introBtnStyle,
   inputAndBtnContainerStyle,
-  inputStyleHover,
 } from "./IntroPageStyle";
+
 import { setLanguages, setNeedFilterFlag } from "../../reducers/filterSlice";
 import { useEffect, useState } from "react";
 
@@ -55,15 +55,7 @@ export const IntroPage = () => {
   };
 
   // Input inputStyle
-  let timing = 350;
-  const inputStyle = {
-    color: "#fff",
-    padding: "4px 10px",
-    borderRadius: "2px",
-    width: showInput ? "200px" : "0px",
-    visibility: showInput ? "visible" : "hidden",
-    transition: `width ${timing}ms ease-in-out`,
-  };
+
   const trigger = () => {
     setShowInput(true);
   };
@@ -81,7 +73,7 @@ export const IntroPage = () => {
               if (event.key === "Enter") handleFindButtonClicked();
             }}
             placeholder={"Username"}
-            sx={inputStyle}
+            sx={() => inputStyle(showInput)}
             type="text"
             color="secondary"
           />

@@ -18,6 +18,16 @@ export const inputAndBtnContainerStyle = {
   alignItems: "center",
   overflow: "hidden",
 };
+export const inputStyle = (showInput) => {
+  return {
+    color: "#fff",
+    padding: "4px 10px",
+    borderRadius: "2px",
+    width: showInput ? "200px" : "0px",
+    visibility: showInput ? "visible" : "hidden",
+    transition: "width 350ms ease-in-out",
+  };
+};
 
 export const introBtnStyle = {
   backgroundColor: "secondary.main",
