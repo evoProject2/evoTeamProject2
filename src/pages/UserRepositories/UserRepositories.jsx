@@ -32,39 +32,22 @@ const UserRepositories = () => {
     return (
         <>
 
-            <Box
-                sx={{
-                    height: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                    marginRight: "15em",
-                    marginTop: "2em",
-                    marginLeft: "5em",
-                    alignSelf: "self-start",
-                }}
-            >
+            <Box sx={{display:'flex', flexDirection:'column', alignItems:'center', width:'100%'}}>
                 <UserDetails/>
-            </Box>
-
-            <Box
-                sx={{
-                    width:'800px',
-                    marginTop:'30px'
-                }}
-            >
-
                 <SearchRepoBar/>
 
-                <Grid sx={{height: "100%"}} container spacing={2}>
+                <Box style={{display:'flex', flexDirection:'row', flexWrap:"wrap", justifyContent:'center', margin:'20px'}}>
                     {user.filteredRepositories &&
                     user.filteredRepositories.map((repo) => (
-                        <Grid item key={repo.name} xs={6}>
+                        <Box >
                             <RepoCard repo={repo}/>
-                        </Grid>
+                        </Box>
                     ))}
-                </Grid>
+                </Box>
 
             </Box>
+
+
             <FilterLogic/>
         </>
     );

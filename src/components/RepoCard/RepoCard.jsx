@@ -24,9 +24,11 @@ export default function RepoCard({repo}) {
                 position: 'relative',
                 display: "flex",
                 flexDirection: "column",
-                m: "10px 0px",
+                justifyContent:'space-between',
+                m: '15px',
                 p: 2,
-                maxWidth: "400px",
+                width:'400px',
+                // maxWidth: "400px",
                 minHeight: "200px",
             }}
         >

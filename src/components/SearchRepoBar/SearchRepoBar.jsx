@@ -1,18 +1,18 @@
-import './SearchRepoBar.css'
-import Card from "@mui/material/Card";
 import Box from "@mui/material/Box";
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
-import {resetFilters, setInputValue, setNeedFilterFlag, showFiltersToggle} from "../../utils/reducers/filterSlice";
-import {Input, Button, TextField} from "@mui/material";
+import {setInputValue, setNeedFilterFlag, showFiltersToggle} from "../../utils/reducers/filterSlice";
+import {Button, TextField, IconButton, FormLabel, InputAdornment} from "@mui/material";
 import FilterBar from "../FilterBar/FilterBar";
-
+import {SearchOutlined} from "@mui/icons-material";
+import ClearIcon from '@mui/icons-material/Clear';
+import SearchIcon from '@mui/icons-material/Search';
 
 export const SearchRepoBar = () => {
     const user = useSelector(state => state.user)
     const filter = useSelector(state => state.filter)
     const value = useSelector(state => state.filter.inputValue)
     const dispatch = useDispatch()
+
 
     return (
         <Box
@@ -21,7 +21,7 @@ export const SearchRepoBar = () => {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                minWidth: "700px",
+                width: "700px",
             }}
         >
 
@@ -33,26 +33,34 @@ export const SearchRepoBar = () => {
                     flexDirection: 'row'
                 }}
             >
+
+                <TextField
+                    fullWidth
+                    label={'Search repository'}
+                    value={filter.inputValue}
+                    onChange={(e) => dispatch(setInputValue(e.target.value))}
+                    InputProps={{
+                        endAdornment: (
+                            <IconButton sx={{visibility: filter.inputValue.length > 0 ? "visible" : "hidden"}}
+                                        onClick={() => dispatch(setInputValue(''))}
+                            >
+                                <ClearIcon/>
+                            </IconButton>
+                        ),
+                        startAdornment: <InputAdornment position="start"><SearchIcon/></InputAdornment>,
+                    }}
+                />
+
                 <Button
-                    sx={filter.show ? {marginRight: 1, borderColor:'white'} : {marginRight: 1}}
+                    sx={filter.show ? {marginRight: 1, borderColor: 'white'} : {marginRight: 1}}
                     variant="outlined"
                     onClick={() => dispatch(showFiltersToggle())}
                 > Filters
                     {/*{filter.show ? 'Hide filters' : 'Show filters'}*/}
                 </Button>
-                <TextField
-                    fullWidth
-                    className={"search-bar-input"}
-                    // placeholder={"Repository name to search ... "}
-                    label='Repository name to search'
-                    onChange={(e) => {
-                        dispatch(setInputValue(e.target.value))
-                        dispatch(setNeedFilterFlag(true))
-                    }}/>
             </Box>
 
 
-            <FilterBar/>
         </Box>
     )
 }

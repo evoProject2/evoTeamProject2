@@ -56,13 +56,13 @@ export const FilterBar = () => {
         filter.show &&
         <Box
             sx={{
-                width: '100%',
+                // width: '100%',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'flex-start',
+                justifyContent: 'center',
                 alignItems: 'center',
                 // border: '2px solid white',
-                borderRadius:1,
+                // borderRadius:1,
                 // margin: '20px 0',
                 // padding: 2
             }}>
@@ -74,11 +74,9 @@ export const FilterBar = () => {
             <FormControl
                 margin='normal'
                 fullWidth
-                // sx={{marginBottom:2}}
             >
                 <FormLabel component="sort">Sort type</FormLabel>
                 <Select
-                    // labelId="sort-select-label"
                     id="sort-select"
                     value={filter.sorting.type}
                     onChange={(e) => handleChange({from: "sorting-type-select", e})}
@@ -91,7 +89,7 @@ export const FilterBar = () => {
                 </Select>
             </FormControl>
 
-            {filter.sorting.type !== 'disabled' ? (
+            {/*{filter.sorting.type !== 'disabled' ? (*/}
                 <FormControl>
                     {/*<FormLabel id="direction-radio-buttons-group-label"> Direction</FormLabel>*/}
                     <RadioGroup
@@ -112,28 +110,25 @@ export const FilterBar = () => {
                         ))}
                     </RadioGroup>
                 </FormControl>
-            ) : null}
+            {/*) : null}*/}
 
-            <FormControl  variant="outlined" fullWidth >
+            <FormControl variant="outlined" fullWidth>
                 <FormLabel component="languages">Languages</FormLabel>
-                <FormGroup row >
-                {
-                    Object.keys(filter.languages).map(lang =>
-                        <Button
-                            // variant={filter.languages[lang].selected ? 'outlined' : 'text'}
-                            variant="outlined"
-                            // sx={{ color: 'white', backgroundColor: 'transparent', borderColor: 'white'}}
-                            sx={filter.languages[lang].selected ?
-                                {borderColor: 'white', backgroundColor: '#ffffff11', margin: '2px'}
-                                : {color: '#ffffffBB', borderColor: '#ffffff11', margin: '2px'}}
-                            // : { color: 'black', backgroundColor: 'white', borderColor: 'black', margin:'2px' }}
-                            key={lang}
-                            // value={filter.languages[lang].selected}
-                            onClick={(e) => handleChange({from: "language-checkbox", lang, e})}
-                        >
-                            {lang}
-                        </Button>
-                    )}
+                <FormGroup row sx={{display: 'flex', flexWrap:'wrap'}}>
+                    {
+                        Object.keys(filter.languages).map(lang =>
+                            <Button
+                                variant="outlined"
+                                sx={
+                                    filter.languages[lang].selected ?
+                                        {borderColor: 'white', backgroundColor: '#ffffff11', margin: '2px'}
+                                        : {color: '#ffffffBB', borderColor: '#ffffff11', margin: '2px'}}
+                                key={lang}
+                                onClick={(e) => handleChange({from: "language-checkbox", lang, e})}
+                            >
+                                {lang}
+                            </Button>
+                        )}
                 </FormGroup>
             </FormControl>
 
