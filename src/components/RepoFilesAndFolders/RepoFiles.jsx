@@ -31,7 +31,7 @@ const RepoFiles = ({ folder }) => {
           <Box sx={fileContainerStyle}>
             <Box sx={fileNameContainerStyle}>
               <Typography variant="p">
-                {file.type === "blob" ? <AiFillFolderOpen /> : <AiFillFile />}
+                {file.type === "tree" ? <AiFillFolderOpen /> : <AiFillFile />}
               </Typography>
               <Typography key={index} sx={fileNameStyle}>
                 {file.path}
