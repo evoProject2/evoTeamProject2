@@ -135,7 +135,6 @@ export default function RepoCard({ repo }) {
                     </Typography>
                 </Box>
             </Box>
-
             <Box>{showComponent && <RepoFilesAndFolders repo={repo}/>}</Box>
             <Box sx={{display: "flex", flexDirection: "row"}}>
                 {/* {Object.keys(repo.languages).map((lang, index) => (

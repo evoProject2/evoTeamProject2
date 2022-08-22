@@ -11,7 +11,6 @@ export const introTitleStyle = {
   fontSize: "35px",
   marginBottom: "10px",
   color: "secondary.main",
-  textShadow: "0px 1px 2px #fff",
 };
 
 export const inputAndBtnContainerStyle = {
