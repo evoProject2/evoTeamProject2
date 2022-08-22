@@ -1,5 +1,0 @@
-.input_and-btn-container:hover > .find_input {
-  visibility: visible;
-  width: 200px;
-  transition: width 300ms ease-in-out, visibility 300ms ease-in-out;
-}

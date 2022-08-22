@@ -1,6 +1,5 @@
 import React from "react";
 import App from "./App";
-
 import { Provider } from "react-redux";
 import { store } from "./utils/store";
 import { ThemeProvider } from "@emotion/react";

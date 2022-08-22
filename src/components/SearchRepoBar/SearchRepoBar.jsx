@@ -1,69 +1,69 @@
 import Box from "@mui/material/Box";
-import {useDispatch, useSelector} from "react-redux";
-import {setInputValue, setNeedFilterFlag, showFiltersToggle} from "../../utils/reducers/filterSlice";
-import {Button, TextField, IconButton, FormLabel, InputAdornment} from "@mui/material";
-import FilterBar from "../FilterBar/FilterBar";
-import {SearchOutlined} from "@mui/icons-material";
-import ClearIcon from '@mui/icons-material/Clear';
-import SearchIcon from '@mui/icons-material/Search';
+import { useDispatch, useSelector } from "react-redux";
+// prettier-ignore
+import {setInputValue,showFiltersToggle} from "../../utils/reducers/filterSlice";
+import { Button, TextField, IconButton, InputAdornment } from "@mui/material";
+import ClearIcon from "@mui/icons-material/Clear";
+import SearchIcon from "@mui/icons-material/Search";
 
 export const SearchRepoBar = () => {
-    const user = useSelector(state => state.user)
-    const filter = useSelector(state => state.filter)
-    const value = useSelector(state => state.filter.inputValue)
-    const dispatch = useDispatch()
+  const filter = useSelector((state) => state.filter);
+  const dispatch = useDispatch();
 
-
-    return (
-        <Box
-            sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                width: "700px",
-            }}
-        >
-
-            <Box
-
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        alignItems: "center",
+        width: "700px",
+      }}
+    >
+      <Box
+        sx={{
+          width: "100%",
+          display: "flex",
+        }}
+      >
+        <TextField
+          fullWidth
+          label={"Search repository"}
+          value={filter.inputValue}
+          onChange={(e) => dispatch(setInputValue(e.target.value))}
+          InputProps={{
+            endAdornment: (
+              <IconButton
                 sx={{
-                    width: '100%',
-                    display: 'flex',
-                    flexDirection: 'row'
+                  visibility:
+                    filter.inputValue.length > 0 ? "visible" : "hidden",
                 }}
-            >
+                onClick={() => dispatch(setInputValue(""))}
+              >
+                <ClearIcon />
+              </IconButton>
+            ),
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon />
+              </InputAdornment>
+            ),
+          }}
+        />
+        <Button
+          sx={
+            filter.show
+              ? { marginRight: 1, borderColor: "white" }
+              : { marginRight: 1 }
+          }
+          variant="outlined"
+          onClick={() => dispatch(showFiltersToggle())}
+        >
+          Filters
+        </Button>
+      </Box>
+    </Box>
+  );
+};
 
-                <TextField
-                    fullWidth
-                    label={'Search repository'}
-                    value={filter.inputValue}
-                    onChange={(e) => dispatch(setInputValue(e.target.value))}
-                    InputProps={{
-                        endAdornment: (
-                            <IconButton sx={{visibility: filter.inputValue.length > 0 ? "visible" : "hidden"}}
-                                        onClick={() => dispatch(setInputValue(''))}
-                            >
-                                <ClearIcon/>
-                            </IconButton>
-                        ),
-                        startAdornment: <InputAdornment position="start"><SearchIcon/></InputAdornment>,
-                    }}
-                />
-
-                <Button
-                    sx={filter.show ? {marginRight: 1, borderColor: 'white'} : {marginRight: 1}}
-                    variant="outlined"
-                    onClick={() => dispatch(showFiltersToggle())}
-                > Filters
-                    {/*{filter.show ? 'Hide filters' : 'Show filters'}*/}
-                </Button>
-            </Box>
-
-
-        </Box>
-    )
-}
-
-
-export default SearchRepoBar
+export default SearchRepoBar;

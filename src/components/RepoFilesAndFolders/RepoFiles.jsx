@@ -9,15 +9,17 @@ import {
 } from "./RepoFileStyle";
 
 const RepoFiles = ({ folder }) => {
-  const [repoFiles, setRepoFiles] = useState([{ ...folder }]);
+  const [repoFiles, setRepoFiles] = useState([]);
 
   const handleRepoFiles = async (files) => {
-    const dataSubFiles = await fetch(files.git_url);
-    const resSubFiles = await dataSubFiles.json();
-    if (files.type === "file") {
-      return;
+    if (files.type === "dir") {
+      const dataSubFiles = await fetch(files.git_url);
+      const resSubFiles = await dataSubFiles.json();
+      const sortFilesContent = [...resSubFiles.tree].sort((a, b) => {
+        return a.type < b.type ? 1 : -1;
+      });
+      setRepoFiles(sortFilesContent);
     }
-    setRepoFiles(resSubFiles.tree);
   };
 
   useEffect(() => {
@@ -26,19 +28,17 @@ const RepoFiles = ({ folder }) => {
 
   return (
     <div>
-      {repoFiles.map((file, index) => (
-        <>
-          <Box sx={fileContainerStyle}>
+      {repoFiles.map((file) => (
+        <div key={file.path}>
+          <Box component="div" sx={fileContainerStyle}>
             <Box sx={fileNameContainerStyle}>
               <Typography variant="p">
                 {file.type === "tree" ? <AiFillFolderOpen /> : <AiFillFile />}
               </Typography>
-              <Typography key={index} sx={fileNameStyle}>
-                {file.path}
-              </Typography>
+              <Typography sx={fileNameStyle}>{file.path}</Typography>
             </Box>
           </Box>
-        </>
+        </div>
       ))}
     </div>
   );

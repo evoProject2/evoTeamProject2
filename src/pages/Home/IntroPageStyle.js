@@ -16,18 +16,21 @@ export const introTitleStyle = {
 export const inputAndBtnContainerStyle = {
   display: "flex",
   alignItems: "center",
+  overflow: "hidden",
 };
-
-export const inputStyle = {
-  visibility: "hidden",
-  width: "0px",
-  color: "#fff",
-  padding: "4px 10px",
-  borderRadius: "2px",
-  transition: "width 300ms ease-in-out, visibility 300ms ease-in-out",
+export const inputStyle = (showInput) => {
+  return {
+    color: "primary.main",
+    padding: "4px 10px",
+    borderRadius: "2px",
+    width: showInput ? "200px" : "0px",
+    visibility: showInput ? "visible" : "hidden",
+    transition: "width 350ms ease-in-out",
+  };
 };
 
 export const introBtnStyle = {
   backgroundColor: "secondary.main",
   fontSize: "16px",
+  visibility: "visible",
 };

@@ -1,58 +1,45 @@
 @font-face {
-    font-family: 'DancingScript';
-    src: url('https://fonts.gstatic.com/s/dancingscript/v24/If2RXTr6YS-zF4S-kcSWSVi_szLgiuE.woff2') ;
+  font-family: "DancingScript";
+  src: url("https://fonts.gstatic.com/s/dancingscript/v24/If2RXTr6YS-zF4S-kcSWSVi_szLgiuE.woff2");
 }
 
 @font-face {
-    font-family: 'SixCaps';
-    src: url('https://fonts.gstatic.com/s/sixcaps/v16/6ae_4KGrU7VR7bNmaYcV_3Q.woff2') ;
+  font-family: "SixCaps";
+  src: url("https://fonts.gstatic.com/s/sixcaps/v16/6ae_4KGrU7VR7bNmaYcV_3Q.woff2");
 }
 
 @font-face {
-    font-family: 'Teko';
-    src: url('https://fonts.gstatic.com/s/teko/v15/LYjNdG7kmE0gfaJ9pRtB.woff2') ;
+  font-family: "Teko";
+  src: url("https://fonts.gstatic.com/s/teko/v15/LYjNdG7kmE0gfaJ9pRtB.woff2");
 }
 
 @font-face {
-    font-family: 'WireOne';
-    src: url('https://fonts.gstatic.com/s/wireone/v24/qFdH35Wah5htUhV75VGlU9s.woff2') ;
+  font-family: "WireOne";
+  src: url("https://fonts.gstatic.com/s/wireone/v24/qFdH35Wah5htUhV75VGlU9s.woff2");
 }
 
 @font-face {
-    font-family: 'StalinistOne';
-    src: url('https://fonts.gstatic.com/s/stalinistone/v47/MQpS-WezM9W4Dd7D3B7I-UT7SZyePhac.woff2') ;
+  font-family: "StalinistOne";
+  src: url("https://fonts.gstatic.com/s/stalinistone/v47/MQpS-WezM9W4Dd7D3B7I-UT7SZyePhac.woff2");
 }
 
 @font-face {
-    font-family: 'Press Start 2P';
-    src: url('https://fonts.gstatic.com/s/pressstart2p/v14/e3t4euO8T-267oIAQAu6jDQyK3nYivN04w.woff2') ;
+  font-family: "Press Start 2P";
+  src: url("https://fonts.gstatic.com/s/pressstart2p/v14/e3t4euO8T-267oIAQAu6jDQyK3nYivN04w.woff2");
 }
 
 @font-face {
-    font-family: 'Press Start 2P rev=1';
-    font-style: normal;
-    font-weight: 400;
-    font-display: block;
-    src: url(https://fonts.gstatic.com/s/pressstart2p/v14/e3t4euO8T-267oIAQAu6jDQyK3nYivN04w.woff2) format('woff2');
-    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+  font-family: "Press Start 2P rev=1";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://fonts.gstatic.com/s/pressstart2p/v14/e3t4euO8T-267oIAQAu6jDQyK3nYivN04w.woff2)
+    format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F,
+    U+FE2E-FE2F;
 }
 
 @font-face {
-    font-family: 'Smokum';
-    src: url('https://fonts.gstatic.com/s/smokum/v24/TK3iWkUbAhopmrd2GT8G.woff2') ;
+  font-family: "Smokum";
+  src: url("https://fonts.gstatic.com/s/smokum/v24/TK3iWkUbAhopmrd2GT8G.woff2");
 }
-
-/*@font-face {*/
-/*    font-family: '';*/
-/*    src: url('') ;*/
-/*}*/
-
-/*@font-face {*/
-/*    font-family: '';*/
-/*    src: url('') ;*/
-/*}*/
-
-
-
-
-

@@ -79,7 +79,6 @@ export default function RepoCard({ repo }) {
         >
           {repo?.name}
         </Typography>
-
         <Box
           sx={{
             display: "flex",
@@ -94,7 +93,6 @@ export default function RepoCard({ repo }) {
               fontWeight: 1000,
               letterSpacing: 2,
               fontSize: "1.2rem",
-              // lineHeight:1.4
             }}
           >
             {repo?.total_rows_from_languages}
@@ -110,19 +108,7 @@ export default function RepoCard({ repo }) {
           </Typography>
         </Box>
       </Box>
-
       <Box>{showComponent && <RepoFilesAndFolders repo={repo} />}</Box>
-      <Box sx={{ display: "flex", flexDirection: "row" }}>
-        {/* {Object.keys(repo.languages).map((lang, index) => (
-          <Chip
-            key={`${lang}-${index}`}
-            label={lang}
-            size="small"
-            sx={{ margin: "0px 5px" }}
-          />
-        ))} */}
-      </Box>
-
       <Box
         sx={{
           display: "flex",

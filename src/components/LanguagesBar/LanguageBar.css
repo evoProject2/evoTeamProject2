@@ -12,13 +12,10 @@
   flex-direction: row;
   overflow: hidden;
   border-radius: 25px;
-  /*border: 2px solid crimson;*/
 }
 
 .language-segment {
   height: 5px;
-
-  /*min-width: 5px;*/
 }
 
 .language-circle {
@@ -38,10 +35,6 @@
   display: inline-block;
   max-width: 400px;
   margin-top: 5px;
-  /* flex-direction: row;
-  margin: 5px;
-  align-items: center;
-  justify-content: flex-start; */
 }
 
 .language-name {
