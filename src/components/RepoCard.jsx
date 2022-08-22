@@ -147,7 +147,6 @@ export default function RepoCard({ repo }) {
           />
         ))} */}
       </Box>
-
       <Box
         sx={{
           display: "flex",

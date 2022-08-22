@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import RepoFolders from "./RepoFolders";
 import Box from "@mui/material/Box";
+import Checkbox from "@mui/material/Checkbox";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
 // import { useSelector } from "react-redux";
 
 const RepoFilesAndFolders = ({ repo }) => {
@@ -29,6 +32,23 @@ const RepoFilesAndFolders = ({ repo }) => {
   return (
     <div>
       <Box sx={{ padding: "0px" }}>
+        <FormGroup>
+          <FormControlLabel
+            control={
+              <Checkbox
+                sx={{
+                  color: "#fff",
+                  "&.Mui-checked": {
+                    color: "secondary.main",
+                  },
+                  pl: "12px",
+                }}
+              />
+            }
+            label="Filter By"
+          />
+        </FormGroup>
+
         {filesAndFolders.map((folder) => {
           return <RepoFolders key={folder.name} folder={folder} />;
         })}

@@ -8,7 +8,7 @@ export const introPageContainerStyle = {
 };
 
 export const introTitleStyle = {
-  fontSize: "35px",
+  fontSize: "30px",
   marginBottom: "10px",
   color: "secondary.main",
 };
