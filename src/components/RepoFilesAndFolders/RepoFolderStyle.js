@@ -3,16 +3,18 @@ export const folderContainerStyle = {
   cursor: "pointer",
 };
 
-export const folderStyle = {
+export const folderStyle = (theme) => ({
   display: "flex",
   alignItems: "center",
   padding: ".5rem 0rem .3rem 1.125rem",
   borderRadius: ".1rem",
   transition: "background 200ms ease-in-out, color 300ms ease-in-out",
   "&:hover": {
+    backgroundColor: theme.palette.mode === "light" ? "#5B5B5B" : "#FFFFFF",
+    color: theme.palette.mode === "light" ? "#fff" : "#1c244c",
     transition: "background 200ms ease-in-out, color 300ms ease-in-out",
   },
-};
+});
 
 export const folderNameStyle = {
   fontSize: "1.125rem",

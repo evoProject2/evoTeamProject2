@@ -1,6 +1,6 @@
 export const introPageContainerStyle = {
   display: "flex",
-  height: "100vh",
+  height: "85vh",
   width: "100%",
   flexDirection: "column",
   justifyContent: "center",
@@ -16,7 +16,7 @@ export const introTitleStyle = {
 export const inputAndBtnContainerStyle = {
   display: "flex",
   alignItems: "center",
-  overflow: "hidden",
+  justifyContent: "center",
 };
 export const inputStyle = (showInput) => {
   return {
