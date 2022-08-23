@@ -1,7 +1,7 @@
 export const introPageContainerStyle = {
   display: "flex",
-  height: "85vh",
-  width: "100%",
+  width: "fit-content",
+  height: "90vh",
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
@@ -23,14 +23,8 @@ export const inputStyle = (showInput) => {
     color: "primary.main",
     padding: "4px 10px",
     borderRadius: "2px",
-    width: showInput ? "200px" : "0px",
+    width: showInput ? "300px" : "0px",
     visibility: showInput ? "visible" : "hidden",
     transition: "width 350ms ease-in-out",
   };
-};
-
-export const introBtnStyle = {
-  backgroundColor: "secondary.main",
-  fontSize: "16px",
-  visibility: "visible",
 };
