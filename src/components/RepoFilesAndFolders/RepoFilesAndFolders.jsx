@@ -5,8 +5,7 @@ import FilterByType from "./FilterByType";
 
 const RepoFilesAndFolders = ({ repo }) => {
   const [filesAndFolders, setFilesAndFolder] = useState([]);
-  const [state, setState] = useState([]);
-  const [filteredByType, setFilteredByType] = useState(state);
+  const [filteredByType, setFilteredByType] = useState(filesAndFolders);
   const [filter, setFilter] = useState([]);
 
   const repoContentApi = `https://api.github.com/repos/${repo.full_name}/contents`;
@@ -21,7 +20,6 @@ const RepoFilesAndFolders = ({ repo }) => {
     if (!res.documentation_url) {
       // Fix the object problem when I have an empty repo
       setFilesAndFolder(sortRepoContent);
-      setState(sortRepoContent);
       setFilteredByType(sortRepoContent);
     }
   };
@@ -32,17 +30,17 @@ const RepoFilesAndFolders = ({ repo }) => {
 
   useEffect(() => {
     let filterByTypeArr = [];
-    const filterArr = state.filter(() => {
+    const filterArr = filesAndFolders.filter(() => {
       if (filter === "default") {
-        return (filterByTypeArr = [...state]);
+        return (filterByTypeArr = [...filesAndFolders]);
       } else {
         if (filter === "folder") {
-          return (filterByTypeArr = [...state].filter((item) => {
+          return (filterByTypeArr = [...filesAndFolders].filter((item) => {
             return item.type === "dir";
           }));
         }
         if (filter === "files") {
-          return (filterByTypeArr = [...state].filter((item) => {
+          return (filterByTypeArr = [...filesAndFolders].filter((item) => {
             return item.type === "file";
           }));
         }
