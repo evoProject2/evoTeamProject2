@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import LanguagesBar from "../LanguagesBar/LanguagesBar";
 import { useSelector } from "react-redux";
 import RepoFilesAndFolders from "../RepoFilesAndFolders/RepoFilesAndFolders";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../../utils/fonts.css";
 import "./RepoCard.css";
 import CodeLines from "./CodeLines/CodeLines";
@@ -15,8 +15,19 @@ export default function RepoCard({ repo }) {
   const theme = useTheme();
   const colors = useSelector((state) => state.github.colors);
 
+  useEffect(() => {
+    const storeRepoFolders = localStorage.getItem("repoFoldersAndFiles");
+    if (storeRepoFolders === "repoRootFolders") {
+      setShowComponent(true);
+    }
+  }, []);
+
   const handleShowComponent = () => {
     setShowComponent((showComponent) => !showComponent);
+    const storeRepoFoldersAndFiles = localStorage.setItem(
+      "repoFoldersAndFiles",
+      "repoRootFolders"
+    );
   };
 
   return (

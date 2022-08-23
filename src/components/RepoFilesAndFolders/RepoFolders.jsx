@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import RepoFiles from "./RepoFiles";
 import { AiFillFolderOpen, AiFillFile } from "react-icons/ai";
 import {
@@ -12,8 +12,19 @@ import {
 const RepoFolders = ({ folder }) => {
   const [showFiles, setShowFiles] = useState(false);
 
+  useEffect(() => {
+    const storeFoldersAndFiles = localStorage.getItem("repoFoldersAndFiles");
+    if (storeFoldersAndFiles === "repoRootFolders/FoldersAndFiles") {
+      setShowFiles(true);
+    }
+  }, []);
+
   const handleFlieShow = () => {
     setShowFiles((showFiles) => !showFiles);
+    const storeRepoFoldersAndFiles = localStorage.setItem(
+      "repoFoldersAndFiles",
+      "repoRootFolders/FoldersAndFiles"
+    );
   };
 
   return (
