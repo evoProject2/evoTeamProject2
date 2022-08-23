@@ -8,17 +8,20 @@ import Box from "@mui/material/Box";
 import UserDetails from "../../components/RepoCard/UserDetails";
 import SearchRepoBar from "../../components/SearchRepoBar/SearchRepoBar";
 import { useNavigate } from "react-router";
+import { showFiltersToggle } from "../../utils/reducers/filterSlice";
 
 const UserRepositories = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
+  const filter = useSelector((state) => state.filter);
   const userAbout = user.userAbout;
 
   useEffect(() => {
     if (Object.keys(userAbout).length === 0) {
       navigate("/", { replace: true });
     } else {
+      dispatch(showFiltersToggle());
       getGithubLanguageColors().then((colors) =>
         dispatch(setGithubColors(colors))
       );

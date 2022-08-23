@@ -31,6 +31,7 @@ export const SearchRepoBar = () => {
           label={"Search repository"}
           value={filter.inputValue}
           onChange={(e) => dispatch(setInputValue(e.target.value))}
+          sx={{ marginRight: "10px" }}
           InputProps={{
             endAdornment: (
               <IconButton
@@ -53,7 +54,7 @@ export const SearchRepoBar = () => {
         <Button
           sx={
             filter.show
-              ? { marginRight: 1, borderColor: "white" }
+              ? { marginRight: 1, borderColor: "#a09e9e" }
               : { marginRight: 1 }
           }
           variant="outlined"

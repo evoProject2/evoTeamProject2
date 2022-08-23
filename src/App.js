@@ -21,6 +21,10 @@ function App() {
   const [mode, setMode] = useState(
     savedMode ? savedMode : prefersDarkMode ? "dark" : "light"
   );
+<<<<<<< HEAD
+=======
+
+>>>>>>> b149098aef583f2011ddfdd467fd1b48c4bb8c09
   const colorMode = useMemo(
     () => ({
       // The dark mode switch would invoke this method
