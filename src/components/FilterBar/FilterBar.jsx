@@ -58,7 +58,7 @@ export const FilterBar = () => {
         }}
       >
         <FormControl margin="normal" fullWidth>
-          <FormLabel component="sort">Sort type</FormLabel>
+          <FormLabel>Sort type</FormLabel>
           <Select
             id="sort-select"
             value={filter.sorting.type}
@@ -92,7 +92,7 @@ export const FilterBar = () => {
         </FormControl>
 
         <FormControl variant="outlined" fullWidth>
-          <FormLabel component="languages">Languages</FormLabel>
+          <FormLabel>Languages</FormLabel>
           <FormGroup row sx={{ display: "flex", flexWrap: "wrap" }}>
             {Object.keys(filter.languages).map((lang) => (
               <Button
