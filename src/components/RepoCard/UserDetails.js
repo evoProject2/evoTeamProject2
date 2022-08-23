@@ -19,7 +19,6 @@ const UserDetails = () => {
           width: "100%",
           height: "400px",
           padding: "0 50px 0 50px",
-
           "@media(max-width: 560px)": {
             display: "flex",
             flexDirection: "column",
@@ -31,11 +30,11 @@ const UserDetails = () => {
       >
         <Avatar
           src={userAbout.avatar_url}
-          circle
           sx={{
             width: "300px",
             height: "300px",
-            outline: "3px solid #fff",
+            outline: "3px solid",
+
             "@media(max-width: 950px)": {
               width: "250px",
               height: "250px",
@@ -71,7 +70,6 @@ const UserDetails = () => {
           <Typography
             variant="h6"
             sx={{
-              color: "#ffffff77",
               "@media(max-width: 950px)": {
                 fontSize: "20px",
               },
