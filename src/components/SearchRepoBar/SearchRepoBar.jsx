@@ -31,6 +31,7 @@ export const SearchRepoBar = () => {
           label={"Search repository"}
           value={filter.inputValue}
           onChange={(e) => dispatch(setInputValue(e.target.value))}
+          sx={{ marginRight: "10px" }}
           InputProps={{
             endAdornment: (
               <IconButton

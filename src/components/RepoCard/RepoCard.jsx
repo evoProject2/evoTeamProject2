@@ -1,14 +1,17 @@
+import { useState } from "react";
+
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import LanguagesBar from "../LanguagesBar/LanguagesBar";
-import { useSelector } from "react-redux";
-import RepoFilesAndFolders from "../RepoFilesAndFolders/RepoFilesAndFolders";
-import { useState } from "react";
+import { useTheme } from "@mui/material";
 import "../../utils/fonts.css";
 import "./RepoCard.css";
+
+import RepoFilesAndFolders from "../RepoFilesAndFolders/RepoFilesAndFolders";
+import LanguagesBar from "../LanguagesBar/LanguagesBar";
 import CodeLines from "./CodeLines/CodeLines";
-import { useTheme } from "@mui/material";
+
+import { useSelector } from "react-redux";
 import moment from "moment";
 
 export default function RepoCard({ repo }) {
@@ -32,7 +35,8 @@ export default function RepoCard({ repo }) {
         p: 2,
         width: "400px",
         minHeight: "200px",
-        backgroundColor: theme.palette.mode === "light" ? "#F1F1F1" : "#161c22",
+        backgroundColor: theme.palette.cardBg,
+        boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2)",
       }}
     >
       <Box

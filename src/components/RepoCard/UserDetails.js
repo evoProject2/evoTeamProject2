@@ -33,7 +33,6 @@ const UserDetails = () => {
           sx={{
             width: "300px",
             height: "300px",
-            outline: "2px solid",
             marginRight: "10px",
             "@media(max-width: 950px)": {
               width: "250px",

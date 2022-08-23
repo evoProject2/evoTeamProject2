@@ -1,15 +1,9 @@
-import { setUserAbout, setUsername } from "../../utils/reducers/userSlice";
-import {
-  fetchUserAbout,
-  getRepositoriesByUsername,
-  getReposLanguages,
-  isAnUsername,
-  searchUsers,
-} from "../../utils/functions";
+import { useState } from "react";
 
-import { setRepositories } from "../../utils/reducers/userSlice";
+import { searchUsers } from "../../utils/functions";
 import { Box, Button, Typography } from "@mui/material";
-import Input from "@mui/material/Input";
+import TextField from "@mui/material/TextField";
+
 import UsersDisplay from "../../components/UsersDisplay";
 import {
   introPageContainerStyle,
@@ -18,27 +12,12 @@ import {
   inputAndBtnContainerStyle,
 } from "./IntroPageStyle";
 
-import TextField from "@mui/material/TextField";
-
-import {
-  setLanguages,
-  setNeedFilterFlag,
-} from "../../utils/reducers/filterSlice";
-import { useEffect, useState } from "react";
-
 export const IntroPage = () => {
   const [searchResults, setSearchResults] = useState({});
   const [error, setError] = useState(false);
   const [showInput, setShowInput] = useState(false);
   const [input, setInput] = useState("");
-
-  useEffect(() => {
-    localStorage.clear();
-  }, []);
-
-  // const handleFindButtonClicked = async () => {
-
-  // };
+  const [loading, setLoading] = useState(false);
 
   const handleInputChange = (event) => {
     setInput(event.target.value);
@@ -46,11 +25,18 @@ export const IntroPage = () => {
 
   const handleSearch = async () => {
     if (input.trim() !== "") {
-      const users = await searchUsers(input);
-      setSearchResults(users);
+      setLoading(true);
+      try {
+        const users = await searchUsers(input);
+        setSearchResults(users);
 
-      if (error) {
-        setError(false);
+        if (error) {
+          setError(false);
+        }
+        setLoading(false);
+      } catch (error) {
+        setError(true);
+        setLoading(false);
       }
     } else {
       setError(true);
@@ -89,14 +75,15 @@ export const IntroPage = () => {
             fontSize: "16px",
             visibility: "visible",
             marginBottom: error ? "20px" : "0px",
+            textTransform: "none",
           }}
           onClick={handleSearch}
         >
-          Find
+          Search
         </Button>
       </Box>
       {searchResults?.total_count !== undefined && (
-        <UsersDisplay users={searchResults.items} />
+        <UsersDisplay users={searchResults.items} loading={loading} />
       )}
     </Box>
   );

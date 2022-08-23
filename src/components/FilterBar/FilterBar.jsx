@@ -13,6 +13,7 @@ import {
   RadioGroup,
   Select,
 } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import {
   resetFilters,
   setNeedFilterFlag,
@@ -24,6 +25,7 @@ import { capitalize, getReposLanguages } from "../../utils/functions";
 import Typography from "@mui/material/Typography";
 
 export const FilterBar = () => {
+  const theme = useTheme();
   const filter = useSelector((state) => state.filter);
 
   const reposLanguages = getReposLanguages(
@@ -49,6 +51,9 @@ export const FilterBar = () => {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
+          boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2)",
+          padding: "10px",
+          backgroundColor: theme.palette.cardBg,
         }}
       >
         <Typography variant="h5">Filters</Typography>

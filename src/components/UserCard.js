@@ -2,9 +2,10 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
+import { useTheme } from "@mui/material";
 
 import { useNavigate } from "react-router";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import {
   getRepositoriesByUsername,
@@ -17,7 +18,7 @@ import { setRepositories, setUserAbout } from "../utils/reducers/userSlice";
 const UserCard = ({ userInfo }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const user = useSelector((state) => state.user);
+  const theme = useTheme();
 
   const handleClick = async () => {
     const userRepo = await getRepositoriesByUsername(userInfo.login);
@@ -33,21 +34,26 @@ const UserCard = ({ userInfo }) => {
   };
 
   return (
-    <Card
-      sx={{
-        display: "flex",
-        flexDirection: "row",
-        margin: "20px 0px",
-        padding: "10px",
-        width: "100%",
-      }}
-      onClick={handleClick}
-    >
-      <Avatar src={userInfo?.avatar_url} alt={userInfo.login} />
-      <Box sx={{ marginLeft: "10px" }}>
-        <Typography variant="h6">{userInfo.login}</Typography>
-      </Box>
-    </Card>
+    <>
+      <Card
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          margin: "20px 0px",
+          padding: "20px 10px",
+          width: "100%",
+          boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2)",
+          cursor: "pointer",
+          backgroundColor: theme.palette.cardBg,
+        }}
+        onClick={handleClick}
+      >
+        <Avatar src={userInfo?.avatar_url} alt={userInfo.login} />
+        <Box sx={{ marginLeft: "10px" }}>
+          <Typography variant="h6">{userInfo.login}</Typography>
+        </Box>
+      </Card>
+    </>
   );
 };
 
