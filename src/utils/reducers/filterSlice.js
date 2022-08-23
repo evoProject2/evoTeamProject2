@@ -21,7 +21,10 @@ export const filterSlice = createSlice({
             state.needFilterFlag = true
         },
         showFiltersToggle: (state) => {
-            state.show = !state.show;
+                state.show = !state.show;
+        },
+        showFiltersSet: (state, flag) => {
+            state.show = flag.payload;
         },
         setSortingDirection: (state, direction) => {
             state.sorting.direction = direction.payload;
@@ -58,5 +61,6 @@ export const {
     setLanguages,
     toggleSelectedLanguage,
     resetFilters,
+    showFiltersSet
 } = filterSlice.actions;
 export default filterSlice.reducer;
