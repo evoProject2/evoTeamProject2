@@ -1,4 +1,9 @@
-import { ABOUT_URL, GITHUB_LANGUAGE_COLORS, REPOS_URL } from "./constants";
+import {
+  ABOUT_URL,
+  GITHUB_LANGUAGE_COLORS,
+  REPOS_URL,
+  SEARCH_URL,
+} from "./constants";
 
 export const fetchData = async (url) => {
   const res = await fetch(url);
@@ -64,4 +69,10 @@ export const getReposLanguages = (repos) => {
     })
   );
   return languages;
+};
+
+export const searchUsers = async (inputValue) => {
+  console.log(SEARCH_URL(inputValue));
+  const result = await fetchData(SEARCH_URL(inputValue));
+  return result;
 };

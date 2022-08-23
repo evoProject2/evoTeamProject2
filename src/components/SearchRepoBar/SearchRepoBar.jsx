@@ -53,7 +53,7 @@ export const SearchRepoBar = () => {
         <Button
           sx={
             filter.show
-              ? { marginRight: 1, borderColor: "white" }
+              ? { marginRight: 1, borderColor: "#a09e9e" }
               : { marginRight: 1 }
           }
           variant="outlined"
