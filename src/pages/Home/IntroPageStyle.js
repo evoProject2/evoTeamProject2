@@ -25,7 +25,7 @@ export const inputStyle = (showInput) => {
     borderRadius: "2px",
     width: showInput ? "200px" : "0px",
     visibility: showInput ? "visible" : "hidden",
-    transition: "width 350ms ease-in-out",
+    transition: "width 300ms ease-in-out",
   };
 };
 

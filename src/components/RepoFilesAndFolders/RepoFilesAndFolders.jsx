@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import RepoFolders from "./RepoFolders";
 import Box from "@mui/material/Box";
-import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
+import FilterByType from "./FilterByType";
 
 const RepoFilesAndFolders = ({ repo }) => {
   const [filesAndFolders, setFilesAndFolder] = useState([]);
 
-  // const sortBy = useSelector((state) => state.filterRepoContent.sortBy);
-  // console.log(sortBy);
   const repoContentApi = `https://api.github.com/repos/${repo.full_name}/contents`;
 
   const getRepoContent = async () => {
@@ -29,23 +27,7 @@ const RepoFilesAndFolders = ({ repo }) => {
   return (
     <div>
       <Box sx={{ padding: "0px" }}>
-        <FormGroup>
-          <FormControlLabel
-            control={
-              <Checkbox
-                sx={{
-                  color: "primary.main",
-                  "&.Mui-checked": {
-                    color: "secondary.main",
-                  },
-                  pl: "12px",
-                }}
-              />
-            }
-            label="Filter By"
-          />
-        </FormGroup>
-
+        <FilterByType filterData={filesAndFolders} />
         {filesAndFolders.map((folder) => {
           return <RepoFolders key={folder.name} folder={folder} />;
         })}

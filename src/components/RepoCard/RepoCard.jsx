@@ -50,17 +50,6 @@ export default function RepoCard({ repo }) {
       </Box>
 
       <Box>{showComponent && <RepoFilesAndFolders repo={repo} />}</Box>
-      <Box sx={{ display: "flex", flexDirection: "row" }}>
-        {/* {Object.keys(repo.languages).map((lang, index) => (
-
-          <Chip
-            key={`${lang}-${index}`}
-            label={lang}
-            size="small"
-            sx={{ margin: "0px 5px" }}
-          />
-        ))} */}
-      </Box>
 
       <Box
         sx={{

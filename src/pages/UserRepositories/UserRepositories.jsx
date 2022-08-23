@@ -70,6 +70,7 @@ const UserRepositories = () => {
           {user.filteredRepositories &&
             user.filteredRepositories.map((repo) => (
               <Box
+                key={repo.name}
                 sx={{
                   "@media(max-width: 500px)": {
                     display: "flex",
