@@ -5,6 +5,9 @@ import FilterByType from "./FilterByType";
 
 const RepoFilesAndFolders = ({ repo }) => {
   const [filesAndFolders, setFilesAndFolder] = useState([]);
+  const [state, setState] = useState([]);
+  const [filteredByType, setFilteredByType] = useState(state);
+  const [filter, setFilter] = useState([]);
 
   const repoContentApi = `https://api.github.com/repos/${repo.full_name}/contents`;
 
@@ -14,11 +17,39 @@ const RepoFilesAndFolders = ({ repo }) => {
     const sortRepoContent = [...res].sort((a, b) => {
       return a.type > b.type ? 1 : -1;
     });
+
     if (!res.documentation_url) {
       // Fix the object problem when I have an empty repo
       setFilesAndFolder(sortRepoContent);
+      setState(sortRepoContent);
+      setFilteredByType(sortRepoContent);
     }
   };
+
+  const handleSelectType = (selectedValue) => {
+    setFilter(selectedValue.toLowerCase());
+  };
+
+  useEffect(() => {
+    let filterByTypeArr = [];
+    const filterArr = state.filter(() => {
+      if (filter === "default") {
+        return (filterByTypeArr = [...state]);
+      } else {
+        if (filter === "folder") {
+          return (filterByTypeArr = [...state].filter((item) => {
+            return item.type === "dir";
+          }));
+        }
+        if (filter === "files") {
+          return (filterByTypeArr = [...state].filter((item) => {
+            return item.type === "file";
+          }));
+        }
+      }
+    });
+    setFilteredByType(filterByTypeArr);
+  }, [filter]);
 
   useEffect(() => {
     getRepoContent();
@@ -27,8 +58,8 @@ const RepoFilesAndFolders = ({ repo }) => {
   return (
     <div>
       <Box sx={{ padding: "0px" }}>
-        <FilterByType filterData={filesAndFolders} />
-        {filesAndFolders.map((folder) => {
+        <FilterByType onFilterByType={handleSelectType} />
+        {filteredByType.map((folder) => {
           return <RepoFolders key={folder.name} folder={folder} />;
         })}
       </Box>

@@ -70,7 +70,7 @@ const UserRepositories = () => {
           {user.filteredRepositories &&
             user.filteredRepositories.map((repo, index) => (
               <Box
-                key={repo.name}
+                key={`${repo.name}-${index}`}
                 sx={{
                   "@media(max-width: 500px)": {
                     display: "flex",
@@ -79,7 +79,6 @@ const UserRepositories = () => {
                     width: "100%",
                   },
                 }}
-                key={`${repo.name}-${index}`}
               >
                 <RepoCard repo={repo} sx={{}} />
               </Box>

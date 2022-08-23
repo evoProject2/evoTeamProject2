@@ -1,33 +1,13 @@
 import React from "react";
 import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
-const FilterSelect = ({ filterData }) => {
-  const [filterValue, setFilterValue] = React.useState("");
+const FilterSelect = ({ onFilterByType }) => {
+  const [filterValue, setFilterValue] = React.useState("Default");
 
   const handleChange = (event) => {
     const selectValue = event.target.value;
     setFilterValue(selectValue);
-
-    if (selectValue === "Default") {
-      return [...filterData].filter((item) => {
-        console.log(item.type);
-        return item.type;
-      });
-    } else {
-      if (selectValue === "Folder") {
-        console.log(filterData);
-        return [...filterData].filter((item) => {
-          console.log(item.type === "dir");
-          return filterData[item.type] === "dir";
-        });
-      }
-      if (selectValue === "Files") {
-        return [...filterData].filter((item) => {
-          console.log(item.type === "file");
-          return item.type === "file";
-        });
-      }
-    }
+    onFilterByType(selectValue);
   };
 
   return (

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import FilterSelect from "./FilterSelect";
 import { Checkbox, FormControlLabel } from "@mui/material";
 
-const FilterByType = ({ filterData }) => {
+const FilterByType = ({ onFilterByType }) => {
   const [showSelect, setShowSelect] = useState(false);
 
   const showSelectHandler = () => {
@@ -29,7 +29,7 @@ const FilterByType = ({ filterData }) => {
         }
       />
 
-      {showSelect ? <FilterSelect filterData={filterData} /> : null}
+      {showSelect ? <FilterSelect onFilterByType={onFilterByType} /> : null}
     </Box>
   );
 };
