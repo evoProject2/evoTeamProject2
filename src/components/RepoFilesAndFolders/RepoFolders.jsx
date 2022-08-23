@@ -12,19 +12,19 @@ import {
 const RepoFolders = ({ folder }) => {
   const [showFiles, setShowFiles] = useState(false);
 
-  useEffect(() => {
-    const storeFoldersAndFiles = localStorage.getItem("repoFoldersAndFiles");
-    if (storeFoldersAndFiles === "repoRootFolders/FoldersAndFiles") {
-      setShowFiles(true);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const storeFoldersAndFiles = localStorage.getItem("repoSubFoldersAndFiles");
+  //   if (storeFoldersAndFiles === "repoRootFolders/FoldersAndFiles") {
+  //     setShowFiles(true);
+  //   }
+  // }, []);
 
   const handleFlieShow = () => {
     setShowFiles((showFiles) => !showFiles);
-    const storeRepoFoldersAndFiles = localStorage.setItem(
-      "repoFoldersAndFiles",
-      "repoRootFolders/FoldersAndFiles"
-    );
+    // const storeRepoFoldersAndFiles = localStorage.setItem(
+    //   "repoSubFoldersAndFiles",
+    //   "repoRootFolders/FoldersAndFiles"
+    // );
   };
 
   return (

@@ -63,7 +63,7 @@ const UserRepositories = () => {
             "@media(min-width: 500px)": {
               display: "flex",
               justifyContent: "center",
-              alignItems: "center",
+              alignItems: "flex-start",
             },
           }}
         >

@@ -2,7 +2,7 @@ import React from "react";
 import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
 const FilterSelect = ({ onFilterByType }) => {
-  const [filterValue, setFilterValue] = React.useState("Default");
+  const [filterValue, setFilterValue] = React.useState("");
 
   const handleChange = (event) => {
     const selectValue = event.target.value;
