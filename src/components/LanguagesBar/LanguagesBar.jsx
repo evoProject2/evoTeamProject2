@@ -1,5 +1,5 @@
 import "./LanguageBar.css";
-import {Box, Tooltip} from "@mui/material";
+import {Box, createStyles, Tooltip} from "@mui/material";
 
 export const LanguagesBar = ({languages, sum, colors, repoName}) => {
     return (
@@ -13,8 +13,11 @@ export const LanguagesBar = ({languages, sum, colors, repoName}) => {
                     {Object.keys(languages).map((language) => (
                         <Tooltip
                             key={repoName + "%" + language}
-                            sx={{backgroundColor: "white",
-                                color: 'rgba(0, 0, 0, 0.87)'}}
+                            PopperProps={{
+                                sx: {
+                                    // marginBottom: "-5px !important",
+                                },
+                            }}
                             arrow
                             placement="top"
                             title={
