@@ -94,7 +94,7 @@ const UserDetails = () => {
         </Box>
 
         <Box sx={{ width: "30%", display: "flex", alignItems: "flex-end" }}>
-          <FilterBar />
+            {/*<FilterBar />*/}
         </Box>
       </Box>
     </>

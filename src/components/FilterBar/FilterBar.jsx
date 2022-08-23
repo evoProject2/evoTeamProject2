@@ -45,12 +45,13 @@ export const FilterBar = () => {
 
   return (
     filter.show && (
-      <Card
+      <Box
         sx={{
           padding:'20px',
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
+          justifyContent: "flex-start",
+          // justifyContent: "center",
           alignItems: "center",
         }}
       >
@@ -121,7 +122,7 @@ export const FilterBar = () => {
         <Button fullWidth onClick={() => dispatch(resetFilters())}>
           Reset filters
         </Button>
-      </Card>
+      </Box>
     )
   );
 };

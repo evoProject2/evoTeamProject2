@@ -9,6 +9,7 @@ import UserDetails from "../../components/RepoCard/UserDetails";
 import SearchRepoBar from "../../components/SearchRepoBar/SearchRepoBar";
 import {useNavigate} from "react-router";
 import {showFiltersSet, showFiltersToggle} from "../../utils/reducers/filterSlice";
+import FilterBar from "../../components/FilterBar/FilterBar";
 
 const UserRepositories = () => {
     const navigate = useNavigate();
@@ -30,6 +31,7 @@ const UserRepositories = () => {
 
     return (
         <>
+
             <Box
                 sx={{
                     display: "flex",
@@ -55,37 +57,42 @@ const UserRepositories = () => {
                 >
                     <SearchRepoBar/>
                 </Box>
-
-                <Box
-                    sx={{
-                        display: "flex",
-                        flexWrap: "wrap",
-                        margin: "20px",
-                        justifyContent: "flex-start",
-                        width: "90%",
-                        "@media(min-width: 500px)": {
+                <Box sx={{display: 'flex', flexDirection: 'row', width:'100%'}}>
+                    <Box
+                        sx={{
                             display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                        },
-                    }}
-                >
-                    {user.filteredRepositories &&
-                    user.filteredRepositories.map((repo, index) => (
-                        <Box
-                            sx={{
-                                "@media(max-width: 500px)": {
-                                    display: "flex",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                    width: "100%",
-                                },
-                            }}
-                            key={`${repo.name}-${index}`}
-                        >
-                            <RepoCard repo={repo} sx={{}}/>
-                        </Box>
-                    ))}
+                            flexWrap: "wrap",
+                            margin: "20px",
+                            justifyContent: "flex-start",
+                            alignItems:'flex-start',
+                            width: "90%",
+                            "@media(min-width: 500px)": {
+                                display: "flex",
+                                justifyContent: "center",
+                                // alignItems: "center",
+                                alignItems:'flex-start',
+                            },
+                        }}
+                    >
+                        {user.filteredRepositories &&
+                        user.filteredRepositories.map((repo, index) => (
+                            <Box
+                                sx={{
+                                    "@media(max-width: 500px)": {
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        width: "100%",
+                                    },
+                                }}
+                                key={`${repo.name}-${index}`}
+                            >
+                                <RepoCard repo={repo} sx={{}}/>
+                            </Box>
+                        ))}
+                    </Box>
+                    <FilterBar/>
+
                 </Box>
             </Box>
             <FilterLogic/>
