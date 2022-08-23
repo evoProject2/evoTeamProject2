@@ -1,24 +1,14 @@
 import { useState } from "react";
-
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-<<<<<<< HEAD
 import LanguagesBar from "../LanguagesBar/LanguagesBar";
 import { useSelector } from "react-redux";
 import RepoFilesAndFolders from "../RepoFilesAndFolders/RepoFilesAndFolders";
-import { useEffect, useState } from "react";
-=======
 import { useTheme } from "@mui/material";
->>>>>>> b149098aef583f2011ddfdd467fd1b48c4bb8c09
 import "../../utils/fonts.css";
 import "./RepoCard.css";
-
-import RepoFilesAndFolders from "../RepoFilesAndFolders/RepoFilesAndFolders";
-import LanguagesBar from "../LanguagesBar/LanguagesBar";
 import CodeLines from "./CodeLines/CodeLines";
-
-import { useSelector } from "react-redux";
 import moment from "moment";
 
 export default function RepoCard({ repo }) {
