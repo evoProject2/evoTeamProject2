@@ -39,7 +39,7 @@ const UserCard = ({ userInfo }) => {
         sx={{
           display: "flex",
           flexDirection: "row",
-          margin: "20px 0px",
+          marginBottom: "25px",
           padding: "20px 10px",
           width: "100%",
           boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2)",
