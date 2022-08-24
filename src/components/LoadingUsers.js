@@ -5,7 +5,7 @@ import { useTheme } from "@mui/material/styles";
 const LoadinguUsers = () => {
   const theme = useTheme();
 
-  return [...Array(4)].map((el, ind) => (
+  return [...Array(8)].map((el, ind) => (
     <Box
       sx={{
         display: "flex",

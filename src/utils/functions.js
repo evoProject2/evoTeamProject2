@@ -72,7 +72,6 @@ export const getReposLanguages = (repos) => {
 };
 
 export const searchUsers = async (inputValue) => {
-  console.log(SEARCH_URL(inputValue));
   const result = await fetchData(SEARCH_URL(inputValue));
   return result;
 };
