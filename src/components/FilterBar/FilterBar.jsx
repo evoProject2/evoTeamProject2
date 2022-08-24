@@ -85,17 +85,20 @@ export const FilterBar = () => {
                             ))}
                         </Select>
 
-                        <Stack direction="column" alignItems="center" width={120}>
-                            {/*<Typography>{filter.sorting.directionSwitch ? ' Ascending ' : 'Descending'}</Typography>*/}
-                            {filter.sorting.directionSwitch && <Typography>Ascending</Typography>}
-                            <DirectionSwitch
+                        {filter.sorting.type !== "disabled" &&
+                        <FormControlLabel
+                            value="s"
+                            control={<DirectionSwitch
                                 disabled={filter.sorting.type === "disabled" ? true : false}
                                 onChange={(e) => handleChange({from: "directionSwitch", e})}
                                 value={filter.sorting.directionSwitch}
                                 checked={filter.sorting.directionSwitch}
-                            />
-                            {!filter.sorting.directionSwitch && <Typography>Descending</Typography>}
-                        </Stack>
+                            />}
+                            label={filter.sorting.directionSwitch ? ' Ascending ' : 'Descending'}
+                            labelPlacement={filter.sorting.directionSwitch ? 'top' : 'bottom'}
+                            sx={{width:'120px'}}
+                        />
+                        }
                     </Box>
                 </FormControl>
 
