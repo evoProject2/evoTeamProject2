@@ -21,16 +21,16 @@ const UserRepositories = () => {
   const filter = useSelector((state) => state.filter);
   const userAbout = user.userAbout;
 
-  useEffect(() => {
-    if (Object.keys(userAbout).length === 0) {
-      navigate("/", { replace: true });
-    } else {
-      dispatch(showFiltersToggle());
-      getGithubLanguageColors().then((colors) =>
-        dispatch(setGithubColors(colors))
-      );
-    }
-  }, []);
+    useEffect(() => {
+        if (Object.keys(userAbout).length === 0) {
+            navigate("/evoTeamProject2/", {replace: true});
+        } else {
+            dispatch(showFiltersToggle());
+            getGithubLanguageColors().then((colors) =>
+                dispatch(setGithubColors(colors))
+            );
+        }
+    }, []);
 
   return (
     <>
