@@ -20,7 +20,7 @@ const UserRepositories = () => {
 
     useEffect(() => {
         if (Object.keys(userAbout).length === 0) {
-            navigate("/", {replace: true});
+            navigate("/evoTeamProject2/", {replace: true});
         } else {
             dispatch(showFiltersToggle());
             getGithubLanguageColors().then((colors) =>
