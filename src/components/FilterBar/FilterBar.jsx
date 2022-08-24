@@ -2,6 +2,7 @@ import "./FilterBar.css";
 import { useDispatch, useSelector } from "react-redux";
 import { FILTER } from "./filterConstants";
 import {
+  Box,
   Button,
   Card,
   FormControl,
@@ -45,18 +46,20 @@ export const FilterBar = () => {
 
   return (
     filter.show && (
-      <Card
+      <Box
         sx={{
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
+          justifyContent: "flex-start",
+          // justifyContent: "center",
           alignItems: "center",
-          boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2)",
-          padding: "10px",
-          backgroundColor: theme.palette.cardBg,
+          // boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2)",
+          // backgroundColor: theme.palette.cardBg,
+          width: "510px",
+          // padding: "10px",
         }}
       >
-        <Typography variant="h5">Filters</Typography>
+        {/*<Typography variant="h5">Filters</Typography>*/}
 
         <FormControl margin="normal" fullWidth>
           <FormLabel>Sort type</FormLabel>
@@ -121,7 +124,7 @@ export const FilterBar = () => {
         <Button fullWidth onClick={() => dispatch(resetFilters())}>
           Reset filters
         </Button>
-      </Card>
+      </Box>
     )
   );
 };

@@ -1,14 +1,17 @@
 import Box from "@mui/material/Box";
 import { useDispatch, useSelector } from "react-redux";
 // prettier-ignore
-import {setInputValue,showFiltersToggle} from "../../utils/reducers/filterSlice";
+import {setInputValue, showFiltersSet, showFiltersToggle} from "../../utils/reducers/filterSlice";
 import { Button, TextField, IconButton, InputAdornment } from "@mui/material";
 import ClearIcon from "@mui/icons-material/Clear";
 import SearchIcon from "@mui/icons-material/Search";
+import {useEffect} from "react";
 
 export const SearchRepoBar = () => {
   const filter = useSelector((state) => state.filter);
   const dispatch = useDispatch();
+
+  useEffect(()=>{dispatch(showFiltersSet(false))}, [])
 
   return (
     <Box
