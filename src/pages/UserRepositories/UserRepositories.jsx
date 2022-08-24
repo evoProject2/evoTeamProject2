@@ -57,20 +57,27 @@ const UserRepositories = () => {
                 >
                     <SearchRepoBar/>
                 </Box>
-                <Box sx={{display: 'flex', flexDirection: 'row', width:'100%'}}>
+                <Box
+                    sx={{
+                        display: 'flex', flexDirection: 'row', width: '100%',
+                        "@media(max-width: 750px)": {
+                            flexDirection: 'column-reverse',
+
+                        },
+                    }}>
                     <Box
                         sx={{
                             display: "flex",
                             flexWrap: "wrap",
                             margin: "20px",
                             justifyContent: "flex-start",
-                            alignItems:'flex-start',
+                            alignItems: 'flex-start',
                             width: "90%",
                             "@media(min-width: 500px)": {
                                 display: "flex",
                                 justifyContent: "center",
                                 // alignItems: "center",
-                                alignItems:'flex-start',
+                                alignItems: 'flex-start',
                             },
                         }}
                     >
@@ -91,6 +98,7 @@ const UserRepositories = () => {
                             </Box>
                         ))}
                     </Box>
+
                     <FilterBar/>
 
                 </Box>
