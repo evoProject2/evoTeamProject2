@@ -134,11 +134,13 @@ export const FilterBar = () => {
                                     filter.languages[lang].selected
                                         ? {
                                             margin: "2px",
-                                            borderColor: '#fff',
-                                            backgroundColor:'#ffffff11'
+                                            borderColor: 'button.selected.border',
+                                            backgroundColor:'button.selected.background'
                                         }
                                         : {
                                             margin: "2px",
+                                            borderColor: 'button.unselected.border',
+                                            backgroundColor:'button.unselected.background'
                                         }
                                 }
 

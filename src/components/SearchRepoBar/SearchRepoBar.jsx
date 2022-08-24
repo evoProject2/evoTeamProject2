@@ -61,10 +61,14 @@ export const SearchRepoBar = () => {
                         filter.show
                             ? {
                                 marginRight: 1,
-                                borderColor: '#fff',
-                                backgroundColor: '#ffffff11'
+                                borderColor: 'button.selected.border',
+                                backgroundColor: 'button.selected.background'
                             }
-                            : {marginRight: 1}
+                            : {
+                                marginRight: 1,
+                                borderColor: 'button.unselected.border',
+                                backgroundColor: 'button.unselected.background'
+                            }
                     }
                     variant="outlined"
                     onClick={() => dispatch(showFiltersToggle())}
