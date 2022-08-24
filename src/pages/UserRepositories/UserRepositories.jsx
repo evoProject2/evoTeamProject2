@@ -25,7 +25,7 @@ const UserRepositories = () => {
         if (Object.keys(userAbout).length === 0) {
             navigate("/evoTeamProject2/", {replace: true});
         } else {
-            dispatch(showFiltersToggle());
+            dispatch(showFiltersSet(false))
             getGithubLanguageColors().then((colors) =>
                 dispatch(setGithubColors(colors))
             );
