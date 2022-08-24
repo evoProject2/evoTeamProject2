@@ -71,7 +71,7 @@ export const FilterBar = () => {
 
                 <FormControl margin="normal" fullWidth>
                     <FormLabel>Sort type</FormLabel>
-                    <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                    <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent:'center'}}>
                         <Select
                             fullWidth
                             id="sort-select"
@@ -96,7 +96,7 @@ export const FilterBar = () => {
                             />}
                             label={filter.sorting.directionSwitch ? ' Ascending ' : 'Descending'}
                             labelPlacement={filter.sorting.directionSwitch ? 'top' : 'bottom'}
-                            sx={{width:'120px'}}
+                            sx={{width: '120px', userSelect: 'none'}}
                         />
                         }
                     </Box>
@@ -134,11 +134,14 @@ export const FilterBar = () => {
                                     filter.languages[lang].selected
                                         ? {
                                             margin: "2px",
+                                            borderColor: '#fff',
+                                            backgroundColor:'#ffffff11'
                                         }
                                         : {
                                             margin: "2px",
                                         }
                                 }
+
                                 key={lang}
                                 onClick={(e) =>
                                     handleChange({from: "languageCheckbox", lang, e})
