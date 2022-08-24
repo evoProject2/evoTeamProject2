@@ -16,19 +16,8 @@ export default function RepoCard({ repo }) {
   const theme = useTheme();
   const colors = useSelector((state) => state.github.colors);
 
-  // useEffect(() => {
-  //   const storeRepoFolders = localStorage.getItem("repoFoldersAndFiles");
-  //   if (storeRepoFolders === "repoRootFolders") {
-  //     setShowComponent(true);
-  //   }
-  // }, []);
-
   const handleShowComponent = () => {
     setShowComponent((showComponent) => !showComponent);
-    // const storeRepoFoldersAndFiles = localStorage.setItem(
-    //   "repoFoldersAndFiles",
-    //   "repoRootFolders"
-    // );
   };
 
   return (
