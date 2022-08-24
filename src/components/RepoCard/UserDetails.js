@@ -93,9 +93,9 @@ const UserDetails = () => {
           </Typography>
         </Box>
 
-        <Box sx={{ width: "30%", display: "flex", alignItems: "flex-end" }}>
-            {/*<FilterBar />*/}
-        </Box>
+        <Box
+          sx={{ width: "30%", display: "flex", alignItems: "flex-end" }}
+        ></Box>
       </Box>
     </>
   );

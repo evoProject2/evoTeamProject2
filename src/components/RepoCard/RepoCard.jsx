@@ -45,6 +45,9 @@ export default function RepoCard({ repo }) {
         minHeight: "200px",
         backgroundColor: theme.palette.cardBg,
         boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2)",
+        "@media(max-width: 500px)": {
+          width: "90%",
+        },
       }}
     >
       <Box
