@@ -22,7 +22,7 @@ export const SearchRepoBar = () => {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                width: "510px",
+                width: "100%",
             }}
         >
             <Box

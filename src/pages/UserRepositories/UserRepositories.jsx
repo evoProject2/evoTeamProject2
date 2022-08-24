@@ -52,6 +52,7 @@ const UserRepositories = () => {
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
+                        maxWidth:'750px',
                         flexDirection: 'column',
                         "@media(max-width: 960px)": {
                           width: "75%",

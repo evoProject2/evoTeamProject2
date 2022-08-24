@@ -62,7 +62,7 @@ export const FilterBar = () => {
                     alignItems: "center",
                     // boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2)",
                     // backgroundColor: theme.palette.cardBg,
-                    width: "510px",
+                    width: "100%",
                     // padding: "10px",
                 }}
             >
