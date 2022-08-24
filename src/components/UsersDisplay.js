@@ -18,7 +18,6 @@ const UsersDisplay = ({ users, loading }) => {
   };
 
   const totalPages = Math.ceil(users.length / USERS_PER_PAGE);
-  console.log(totalPages);
 
   const usersToDisplay = users.slice(
     (page - 1) * USERS_PER_PAGE,

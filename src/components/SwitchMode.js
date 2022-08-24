@@ -59,7 +59,6 @@ const SwitchMode = () => {
   const handleSwitch = () => {
     const currentMode = theme.palette.mode === "dark" ? "light" : "dark";
     localStorage.setItem("mode", currentMode);
-
     colorMode.toggleColorMode();
   };
 
