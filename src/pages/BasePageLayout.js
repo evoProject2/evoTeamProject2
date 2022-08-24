@@ -17,6 +17,7 @@ const BasePageLayout = ({ children }) => {
         sx={{
           display: "flex",
           justifyContent: "center",
+          alignItems: "center",
           flexDirection: "column",
         }}
         maxWidth="xl"

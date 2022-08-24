@@ -22,7 +22,7 @@ const UserRepositories = () => {
         if (Object.keys(userAbout).length === 0) {
             navigate("/", {replace: true});
         } else {
-            // showFiltersSet(false)
+            dispatch(showFiltersToggle());
             getGithubLanguageColors().then((colors) =>
                 dispatch(setGithubColors(colors))
             );
@@ -31,7 +31,6 @@ const UserRepositories = () => {
 
     return (
         <>
-
             <Box
                 sx={{
                     display: "flex",
@@ -57,51 +56,46 @@ const UserRepositories = () => {
                 >
                     <SearchRepoBar/>
                 </Box>
-                <Box
-                    sx={{
-                        display: 'flex', flexDirection: 'row', width: '100%',
-                        "@media(max-width: 750px)": {
-                            flexDirection: 'column-reverse',
 
-                        },
-                    }}>
+
+
+                <Box sx={{display:'flex', flexDirection:'column', alignItems:'center'}}>
+                    <FilterBar />
                     <Box
                         sx={{
                             display: "flex",
                             flexWrap: "wrap",
                             margin: "20px",
                             justifyContent: "flex-start",
-                            alignItems: 'flex-start',
                             width: "90%",
                             "@media(min-width: 500px)": {
                                 display: "flex",
                                 justifyContent: "center",
-                                // alignItems: "center",
-                                alignItems: 'flex-start',
+                                alignItems: "flex-start",
                             },
                         }}
                     >
-                        {user.filteredRepositories &&
-                        user.filteredRepositories.map((repo, index) => (
-                            <Box
-                                sx={{
-                                    "@media(max-width: 500px)": {
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        alignItems: "center",
-                                        width: "100%",
-                                    },
-                                }}
-                                key={`${repo.name}-${index}`}
-                            >
-                                <RepoCard repo={repo} sx={{}}/>
-                            </Box>
-                        ))}
+                        {user.filteredRepositories?.length > 0 ?
+                            user.filteredRepositories.map((repo, index) => (
+                                <Box
+                                    key={`${repo.name}-${index}`}
+                                    sx={{
+                                        "@media(max-width: 500px)": {
+                                            display: "flex",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                            width: "100%",
+                                        },
+                                    }}
+                                >
+                                    <RepoCard repo={repo} sx={{}}/>
+                                </Box>
+                            ))
+                            : "No repositories to show."
+                        }
                     </Box>
-
-                    <FilterBar/>
-
                 </Box>
+
             </Box>
             <FilterLogic/>
         </>

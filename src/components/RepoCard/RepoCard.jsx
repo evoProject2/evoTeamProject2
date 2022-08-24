@@ -1,22 +1,34 @@
+import { useState } from "react";
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import LanguagesBar from "../LanguagesBar/LanguagesBar";
 import { useSelector } from "react-redux";
 import RepoFilesAndFolders from "../RepoFilesAndFolders/RepoFilesAndFolders";
-import { useState } from "react";
+import { useTheme } from "@mui/material";
 import "../../utils/fonts.css";
 import "./RepoCard.css";
 import CodeLines from "./CodeLines/CodeLines";
-import { useTheme } from "@mui/material";
+import moment from "moment";
 
 export default function RepoCard({ repo }) {
   const [showComponent, setShowComponent] = useState(false);
   const theme = useTheme();
   const colors = useSelector((state) => state.github.colors);
 
+  // useEffect(() => {
+  //   const storeRepoFolders = localStorage.getItem("repoFoldersAndFiles");
+  //   if (storeRepoFolders === "repoRootFolders") {
+  //     setShowComponent(true);
+  //   }
+  // }, []);
+
   const handleShowComponent = () => {
     setShowComponent((showComponent) => !showComponent);
+    // const storeRepoFoldersAndFiles = localStorage.setItem(
+    //   "repoFoldersAndFiles",
+    //   "repoRootFolders"
+    // );
   };
 
   return (
@@ -31,7 +43,8 @@ export default function RepoCard({ repo }) {
         p: 2,
         width: "400px",
         minHeight: "200px",
-        backgroundColor: theme.palette.mode === "light" ? "#fafbfc" : "#161c22",
+        backgroundColor: theme.palette.cardBg,
+        boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2)",
       }}
     >
       <Box
@@ -40,14 +53,20 @@ export default function RepoCard({ repo }) {
           justifyContent: "space-between",
         }}
       >
-        <Typography
-          variant="h5"
-          mb="15px"
-          sx={{ cursor: "pointer" }}
-          onClick={handleShowComponent}
-        >
-          {repo?.name}
-        </Typography>
+        <Box sx={{ display: "flex", flexDirection: "column" }}>
+          <Typography
+            variant="h5"
+            mb="5px"
+            sx={{ cursor: "pointer" }}
+            onClick={handleShowComponent}
+          >
+            {repo?.name}
+          </Typography>
+
+          <Typography color="#b1b1b1">
+            {moment(repo.last_push).fromNow()}
+          </Typography>
+        </Box>
 
         <CodeLines count={repo?.total_rows_from_languages} />
       </Box>

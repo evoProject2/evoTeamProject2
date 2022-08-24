@@ -33,11 +33,11 @@ const UserDetails = () => {
           sx={{
             width: "300px",
             height: "300px",
-            outline: "3px solid",
-
+            marginRight: "10px",
             "@media(max-width: 950px)": {
               width: "250px",
               height: "250px",
+              marginRight: "5px",
             },
           }}
         />
@@ -85,7 +85,7 @@ const UserDetails = () => {
               justifyContent: "flex-start",
               alignItems: "center",
               "@media(max-width: 950px)": {
-                fontSize: "18px",
+                fontSize: "15px",
               },
             }}
           >

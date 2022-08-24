@@ -2,7 +2,9 @@ import "./FilterBar.css";
 import { useDispatch, useSelector } from "react-redux";
 import { FILTER } from "./filterConstants";
 import {
-  Button, Card,
+  Box,
+  Button,
+  Card,
   FormControl,
   FormControlLabel,
   FormGroup,
@@ -12,6 +14,7 @@ import {
   RadioGroup,
   Select,
 } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import {
   resetFilters,
   setNeedFilterFlag,
@@ -20,10 +23,10 @@ import {
   toggleSelectedLanguage,
 } from "../../utils/reducers/filterSlice";
 import { capitalize, getReposLanguages } from "../../utils/functions";
-import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
 export const FilterBar = () => {
+  const theme = useTheme();
   const filter = useSelector((state) => state.filter);
 
   const reposLanguages = getReposLanguages(
@@ -31,15 +34,13 @@ export const FilterBar = () => {
   );
   const dispatch = useDispatch();
 
-
-
   const handleChange = (props) => {
     const handleByType = {
-      radioDirection: ({e}) => dispatch(setSortingDirection(e.target.value)),
-      sortingTypeSelect: ({e}) => dispatch(setSortingType(e.target.value)),
-      languageCheckbox: ({lang}) => dispatch(toggleSelectedLanguage(lang))
-    }
-    handleByType[props.from](props)
+      radioDirection: ({ e }) => dispatch(setSortingDirection(e.target.value)),
+      sortingTypeSelect: ({ e }) => dispatch(setSortingType(e.target.value)),
+      languageCheckbox: ({ lang }) => dispatch(toggleSelectedLanguage(lang)),
+    };
+    handleByType[props.from](props);
     dispatch(setNeedFilterFlag(true));
   };
 
@@ -47,17 +48,18 @@ export const FilterBar = () => {
     filter.show && (
       <Box
         sx={{
-          padding:'20px',
           display: "flex",
           flexDirection: "column",
           justifyContent: "flex-start",
           // justifyContent: "center",
           alignItems: "center",
+          // boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2)",
+          // backgroundColor: theme.palette.cardBg,
+          width: "510px",
+          // padding: "10px",
         }}
       >
-        <Typography variant="h5">
-          Filters
-        </Typography>
+        {/*<Typography variant="h5">Filters</Typography>*/}
 
         <FormControl margin="normal" fullWidth>
           <FormLabel>Sort type</FormLabel>

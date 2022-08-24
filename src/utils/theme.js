@@ -5,11 +5,13 @@ export const getDesignTokens = (mode) => ({
       ? {
           // palette values for light mode
           primary: {
-            main: "#1c244c",
+            main: "#000000",
           },
           secondary: {
-            main: "#673ab7",
+            main: "#7e5abd",
           },
+          loading: "#D3D3D3",
+          cardBg: "#F1F1F1",
         }
       : {
           // palette values for dark mode
@@ -23,6 +25,8 @@ export const getDesignTokens = (mode) => ({
             paper: "#0d1118",
             default: "#0d1118",
           },
+          loading: "#434549",
+          cardBg: "#161c22",
         }),
   },
 });

@@ -21,7 +21,7 @@ function App() {
   const [mode, setMode] = useState(
     savedMode ? savedMode : prefersDarkMode ? "dark" : "light"
   );
-  console.log(savedMode);
+
   const colorMode = useMemo(
     () => ({
       // The dark mode switch would invoke this method
