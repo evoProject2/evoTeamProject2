@@ -11,7 +11,12 @@ const FilterSelect = ({ onFilterByType }) => {
   };
 
   return (
-    <Box sx={{ ml: "15px", py: "5px" }}>
+    <Box
+      sx={{
+        ml: "15px",
+        py: "7px",
+      }}
+    >
       <FormControl sx={{ width: "40%" }}>
         <InputLabel id="simple-select-label">Select Type</InputLabel>
         <Select

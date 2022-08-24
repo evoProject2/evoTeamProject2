@@ -56,7 +56,9 @@ const RepoFilesAndFolders = ({ repo }) => {
   return (
     <div>
       <Box sx={{ padding: "0px" }}>
-        <FilterByType onFilterByType={handleSelectType} />
+        {filteredByType.length > 0 && (
+          <FilterByType onFilterByType={handleSelectType} />
+        )}
         {filteredByType.map((folder) => {
           return <RepoFolders key={folder.name} folder={folder} />;
         })}
